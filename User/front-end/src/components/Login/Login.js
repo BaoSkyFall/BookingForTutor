@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import FacebookLoginComponent from "./FacebookLogin";
 import GoogleLoginComponent from "./GoogleLogin";
-
-import { PropTypes } from "react";
+import Button from 'react-bootstrap/Button';
 export default class Login extends Component {
   state = {
     isLoggedIn: false,
@@ -11,7 +10,13 @@ export default class Login extends Component {
     email: "",
     picture: ""
   };
+  onLogoutFB = () => {
+    console.log('windown:', window.FB)
+    window.FB.logout();
+    console.log(window.FB);
+  }
   loginSuccess = response => {
+    localStorage.setItem('token', response.accessToken)
     this.setState({
       isLoggedIn: true,
       userId: response.id,
@@ -24,15 +29,26 @@ export default class Login extends Component {
     let contentLogin;
     const loginSuccess = this.loginSuccess;
     if (this.state.isLoggedIn) {
+      contentLogin = (<div> <h1>{this.state.userId}</h1>
+        <h2>{this.state.name}</h2>
+        <h2>{this.state.email}</h2>
+        <img src={this.state.picture} alt="" />
+        <Button variant="danger" onClick={this.onLogoutFB}>Logout</Button>
+
+      </div>)
     } else {
-    }
-    return (
-      <div>
+      contentLogin = (<div>
         <FacebookLoginComponent
           loginSuccess={loginSuccess}
           isLoggedIn={this.state.isLoggedIn}
         />
         <GoogleLoginComponent />
+
+      </div>)
+    }
+    return (
+      <div>
+        {contentLogin}
       </div>
     );
   }
