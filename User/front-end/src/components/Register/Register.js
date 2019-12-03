@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import FacebookLoginComponent from "./FacebookLogin";
-import GoogleLoginComponent from "./GoogleLogin";
 import {
   MDBContainer,
   MDBRow,
@@ -11,33 +9,35 @@ import {
   MDBBtn,
   MDBModalFooter
 } from "mdbreact";
-import { NavLink } from "react-router-dom";
-import "./Login.css";
+import "./Register.css";
 import { userService } from "../../services/user.service";
 import { history } from "../../helpers/history";
+import { NavLink } from "react-router-dom";
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userId: "",
-      password: ""
+      email: "",
+      password: "",
+      confirm: "",
+      isTutor: null
     };
   }
 
-  login = () => {
-    userService.login(this.state.userId, this.state.password).then(
-      user => {
-        history.push("/");
-      },
-      error => {
-        alert("Login failed");
-      }
-    );
+  register = () => {
+    //TO DO:
   };
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state);
+  };
+
+  onOptChanged = e => {
+    if (e.target.value === "true") this.setState({ isTutor: true });
+    else if (e.target.value === "false") this.setState({ isTutor: false });
   };
 
   onLogoutFB = () => {
@@ -66,12 +66,22 @@ export default class Login extends Component {
               <MDBCardBody className="mx-4">
                 <div className="text-center">
                   <h3 className="dark-grey-text mb-5">
-                    <strong>Sign in</strong>
+                    <strong>Register</strong>
                   </h3>
                 </div>
                 <MDBInput
                   label="UserID"
                   name="userId"
+                  group
+                  type="text"
+                  validate
+                  error="wrong"
+                  success="right"
+                  onChange={this.onChange}
+                />
+                <MDBInput
+                  label="Email"
+                  name="email"
                   group
                   type="text"
                   validate
@@ -88,38 +98,42 @@ export default class Login extends Component {
                   containerClass="mb-0"
                   onChange={this.onChange}
                 />
-                <p className="font-small blue-text d-flex justify-content-end pb-3">
-                  <a href="#!" className="blue-text ml-1">
-                    Forgot Password?
-                  </a>
-                </p>
+                <MDBInput
+                  label="Confirm password"
+                  name="confirm"
+                  group
+                  type="password"
+                  validate
+                  containerClass="mb-0"
+                  onChange={this.onChange}
+                />
+                <div id="optRole">
+                  <select
+                    className="browser-default custom-select"
+                    onChange={this.onOptChanged}
+                  >
+                    <option>Choose your role</option>
+                    <option value={true}>Tutor</option>
+                    <option value={false}>Student</option>
+                  </select>
+                </div>
                 <div className="text-center mb-3">
                   <MDBBtn
                     type="button"
                     gradient="blue"
                     rounded
                     className="btn-block z-depth-1a"
-                    onClick={this.login}
+                    onClick={this.register}
                   >
-                    Sign in
+                    Register
                   </MDBBtn>
-                </div>
-                <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
-                  or Sign in with:
-                </p>
-                <div className="row my-3 d-flex justify-content-center">
-                  <FacebookLoginComponent
-                    loginSuccess={this.loginFBSuccess}
-                    isLoggedIn={this.state.isLoggedIn}
-                  />
-                  <GoogleLoginComponent />
                 </div>
               </MDBCardBody>
               <MDBModalFooter className="mx-5 pt-3 mb-1">
                 <p className="font-small grey-text d-flex justify-content-end">
-                  Not a member?
-                  <NavLink to="/register">
-                    <span className="blue-text ml-1">Register</span>
+                  Already a member?
+                  <NavLink to="/login">
+                    <span className="blue-text ml-1">Sign in</span>
                   </NavLink>
                 </p>
               </MDBModalFooter>
