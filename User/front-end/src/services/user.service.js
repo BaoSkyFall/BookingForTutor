@@ -1,6 +1,6 @@
 //import { authHeader } from "../Helpers";
 
-const apiUrl = "https://cocaroapi.herokuapp.com";
+const apiUrl = "http://localhost:59822";
 
 export const userService = {
   login,
@@ -12,19 +12,22 @@ export const userService = {
 };
 
 function login(name, password) {
+  let value = "grant_type=password&username=" + name + "&password=" + password;
+  console.log('value:', value);
   const requestOptions = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, password })
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: value,
   };
 
-  return fetch(`${apiUrl}/user/login`, requestOptions)
+  return fetch(`${apiUrl}/oauth/token`, requestOptions)
     .then(handleResponse)
-    .then(user => {
+    .then(response => {
+      console.log('response:', response)
       // store user details and jwt token in local storage to keep user logged in between page refreshes
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", JSON.stringify(response.access_token));
 
-      return user;
+      return response;
     });
 }
 
@@ -43,13 +46,14 @@ function logout() {
 // }
 
 function register(user) {
+  console.log(user);
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user)
   };
 
-  return fetch(`${apiUrl}/user/register`, requestOptions).then(handleResponse);
+  return fetch(`${apiUrl}/api/accounts/create`, requestOptions).then(handleResponse);
 }
 
 // function update(user) {
