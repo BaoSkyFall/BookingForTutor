@@ -50,8 +50,8 @@ E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\BTN03\User\Back-end\Project\Backend
 E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\BTN03\User\Back-end\Project\Backend_User\Backend_User\bin\System.Web.Http.Owin.xml
 E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\BTN03\User\Back-end\Project\Backend_User\Backend_User\bin\System.Web.Http.WebHost.xml
 E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\BTN03\User\Back-end\Project\Backend_User\Backend_User\bin\Thinktecture.IdentityModel.Core.pdb
-E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\BTN03\User\Back-end\Project\Backend_User\Backend_User\obj\Debug\Backend_User.csprojAssemblyReference.cache
 E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\BTN03\User\Back-end\Project\Backend_User\Backend_User\obj\Debug\Backend_User.csproj.CoreCompileInputs.cache
 E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\BTN03\User\Back-end\Project\Backend_User\Backend_User\obj\Debug\Backend_User.csproj.CopyComplete
 E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\BTN03\User\Back-end\Project\Backend_User\Backend_User\obj\Debug\AspNetIdentity.WebApi.dll
 E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\BTN03\User\Back-end\Project\Backend_User\Backend_User\obj\Debug\AspNetIdentity.WebApi.pdb
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\BTN03\User\Back-end\Project\Backend_User\Backend_User\obj\Debug\Backend_User.csprojAssemblyReference.cache

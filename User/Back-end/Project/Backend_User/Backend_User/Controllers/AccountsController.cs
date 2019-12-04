@@ -87,16 +87,19 @@ namespace AspNetIdentity.WebApi.Controllers
             {
                 return GetErrorResult(addUserResult);
             }
+            var modelId = createUserModel.Role? "ca67b386-48db-4eb6-a67e-29c8eb5af895" : "c361cb50-97c6-40d1-ab1b-414ceeefcba7";
+        
+            var role = await this.AppRoleManager.FindByIdAsync(modelId);
 
             string code = await this.AppUserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-
-            var callbackUrl = new Uri("http://localhost:4200/confirmemail?userId=" + Uri.EscapeDataString(user.Id) + "&code=" + Uri.EscapeDataString(code));
-            var callbackUrl2 = new Uri(Url.Link("ConfirmEmailRoute", new { userId = user.Id, code = code }));
+            IdentityResult result = await this.AppUserManager.AddToRoleAsync(user.Id, role.Name);
+            //var callbackUrl = new Uri("http://localhost:4200/confirmemail?userId=" + Uri.EscapeDataString(user.Id) + "&code=" + Uri.EscapeDataString(code));
+            //var callbackUrl2 = new Uri(Url.Link("ConfirmEmailRoute", new { userId = user.Id, code = code }));
                 
-            await this.AppUserManager.SendEmailAsync(user.Id,
-                                                    "Confirm your account",
-                                                    "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a> and"
-                                                    + callbackUrl2);
+            //await this.AppUserManager.SendEmailAsync(user.Id,
+            //                                        "Confirm your account",
+            //                                        "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a> and"
+            //                                        + callbackUrl2);
 
             Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
 
