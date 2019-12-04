@@ -74,7 +74,7 @@ export default class Login extends Component {
         <p id="banner">Welcome to DoubleB</p>
         <MDBRow>
           <MDBCol md="6" id="inner">
-            <MDBCard>
+            <MDBCard className="myCard">
               <MDBCardBody className="mx-4">
                 <div className="text-center">
                   <h3 className="dark-grey-text mb-5">

@@ -14,12 +14,14 @@ import { userService } from "../../services/user.service";
 import { history } from "../../helpers/history";
 import { NavLink } from "react-router-dom";
 
-export default class Login extends Component {
+export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userId: "",
       email: "",
+      firstName: "",
+      lastName: "",
       password: "",
       confirm: "",
       isTutor: null,
@@ -32,10 +34,22 @@ export default class Login extends Component {
 
     this.setState({ isSubmitted: true });
 
-    const { userId, email, password, confirm, isTutor } = this.state;
+    const {
+      userId,
+      email,
+      firstName,
+      lastName,
+      password,
+      confirm,
+      isTutor
+    } = this.state;
 
     if (userId === "") this.setState({ message: "Please input UserID" });
     else if (email === "") this.setState({ message: "Please input Email" });
+    else if (firstName === "")
+      this.setState({ message: "Please input First Name" });
+    else if (lastName === "")
+      this.setState({ message: "Please input Last Name" });
     else if (password === "")
       this.setState({ message: "Please input Password" });
     else if (confirm === "") this.setState({ message: "Please input Confirm" });
@@ -110,7 +124,7 @@ export default class Login extends Component {
         <p id="banner">Welcome to DoubleB</p>
         <MDBRow>
           <MDBCol md="6" id="inner">
-            <MDBCard>
+            <MDBCard className="myCard">
               <MDBCardBody className="mx-4">
                 <div className="text-center">
                   <h3 className="dark-grey-text mb-5">
@@ -138,6 +152,30 @@ export default class Login extends Component {
                   success="right"
                   onChange={this.onChange}
                 />
+                <div>
+                  <MDBInput
+                    label="First Name"
+                    name="firstName"
+                    className="col-12"
+                    group
+                    type="text"
+                    validate
+                    error="wrong"
+                    success="right"
+                    onChange={this.onChange}
+                  />
+                  <MDBInput
+                    label="Last Name"
+                    name="lastName"
+                    className="col-12"
+                    group
+                    type="text"
+                    validate
+                    error="wrong"
+                    success="right"
+                    onChange={this.onChange}
+                  />
+                </div>
                 <MDBInput
                   label="Password"
                   name="password"
