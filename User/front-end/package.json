@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "history": "^4.10.1",
     "jquery": "^3.4.1",
     "mdbreact": "^4.23.0",
     "react": "^16.12.0",
