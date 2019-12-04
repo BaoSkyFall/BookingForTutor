@@ -77,8 +77,9 @@ export default class Register extends Component {
 
       if (userId && password) {
         this.setState({ message: "Registering account" });
-        userService.register({ UserName: userId, Password: password, ConfirmPassword: password, Email: email, FirstName: firstName, LastName: lastName,Role:isTutor  }).then(
+        userService.register({ UserName: userId, Password: password, ConfirmPassword: password, Email: email, FirstName: firstName, LastName: lastName, Role: isTutor }).then(
           data => {
+            console.log('data:', data)
             if (data.user === null) {
               this.setState({ message: "This name is existed" });
             } else {
