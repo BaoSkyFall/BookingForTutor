@@ -15,16 +15,28 @@ import {
 import { BrowserRouter as Router } from "react-router-dom";
 import { history } from "../../helpers/history";
 import "./Home.css";
+import JWT from "jwt-decode";
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       collapse: false,
-      isWideEnough: false
+      isWideEnough: false,
+      user: {
+        nameId: "",
+        role: ""
+      }
     };
     this.onClick = this.onClick.bind(this);
   }
+
+  componentDidMount = () => {
+    const token = localStorage.getItem("token");
+    var decoded = JWT(token);
+    //TO DO
+    console.log(decoded);
+  };
 
   onClick() {
     this.setState({
@@ -36,6 +48,22 @@ export default class Home extends Component {
     history.push("/login");
   };
   render() {
+    const { role } = this.state;
+    let context = "";
+    if (role === "Tutor")
+      context = (
+        <div>
+          <h2>This is Tutor home page</h2>
+          <h5>Hello</h5>
+        </div>
+      );
+    else
+      context = (
+        <div>
+          <h2>This is student home page</h2>
+          <h5>Hello</h5>
+        </div>
+      );
     return (
       // <div>
       //   Home
@@ -88,20 +116,7 @@ export default class Home extends Component {
               overlay="purple-light"
               className="flex-center flex-column text-white text-center"
             >
-              <h2>This Navbar is fixed</h2>
-              <h5>
-                It will always stay visible on the top, even when you scroll
-                down
-              </h5>
-              <p>
-                Navbar's background will switch from transparent to solid color
-                while scrolling down
-              </p>
-              <br />
-              <p>
-                Full page intro with background image will be always displayed
-                in full screen mode, regardless of device{" "}
-              </p>
+              {context}
             </MDBMask>
           </MDBView>
         </header>
