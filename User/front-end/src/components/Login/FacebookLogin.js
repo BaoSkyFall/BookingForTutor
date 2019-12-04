@@ -19,12 +19,12 @@ export default class FacebookLoginComponent extends Component {
           rounded
           className="mr-md-3 z-depth-1a"
         >
-          <FacebookLogin
+          {/* <FacebookLogin
               appId="1426065474240213"
               fields="name,email,picture"
               onClick={this.componentClicked}
               callback={this.responseFacebook}
-            />
+            /> */}
           <MDBIcon fab icon="facebook-f" className="blue-text text-center" />
         </MDBBtn>
       );
