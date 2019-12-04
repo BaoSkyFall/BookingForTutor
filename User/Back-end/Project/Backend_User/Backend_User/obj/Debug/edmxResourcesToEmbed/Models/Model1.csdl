@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CarShopEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="Brands" EntityType="CarShopModel.Brand" />
+    <EntitySet Name="Cars" EntityType="CarShopModel.Car" />
+    <AssociationSet Name="FK__Car__ID_Brand__5165187F" Association="CarShopModel.FK__Car__ID_Brand__5165187F">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Brand" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cars" Relationship="CarShopModel.FK__Car__ID_Brand__5165187F" FromRole="Brand" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Car" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Brand" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Brand" Relationship="CarShopModel.FK__Car__ID_Brand__5165187F" FromRole="Car" ToRole="Brand" />
+  </EntityType>
+  <Association Name="FK__Car__ID_Brand__5165187F">
+    <End Type="CarShopModel.Brand" Role="Brand" Multiplicity="0..1" />
+    <End Type="CarShopModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="ID_Brand" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

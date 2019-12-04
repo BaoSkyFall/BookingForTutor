@@ -1,0 +1,114 @@
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\AspNetIdentity.WebApi.dll.config
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\AspNetIdentity.WebApi.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\AspNetIdentity.WebApi.pdb
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\EntityFramework.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\EntityFramework.SqlServer.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Cors.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.Jwt.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Newtonsoft.Json.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Owin.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\SendGrid.SmtpApi.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\SendGridMail.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Net.Http.Formatting.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Cors.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.Owin.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.WebHost.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Thinktecture.IdentityModel.Core.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\EntityFramework.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\EntityFramework.SqlServer.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Cors.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.Jwt.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Newtonsoft.Json.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Net.Http.Formatting.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.Owin.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.WebHost.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Thinktecture.IdentityModel.Core.pdb
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csprojAssemblyReference.cache
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csproj.CoreCompileInputs.cache
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csproj.CopyComplete
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.pdb
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.Cors.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.Cors.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Web.Infrastructure.dll
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\Working\Lab\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\AspNetIdentity.WebApi.dll.config
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\AspNetIdentity.WebApi.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\AspNetIdentity.WebApi.pdb
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\EntityFramework.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\EntityFramework.SqlServer.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.Core.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Cors.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.Cookies.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.Jwt.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.OAuth.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Web.Infrastructure.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Newtonsoft.Json.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Owin.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\SendGrid.SmtpApi.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\SendGridMail.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Net.Http.Formatting.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Cors.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.Cors.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.Owin.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.WebHost.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Thinktecture.IdentityModel.Core.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\EntityFramework.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\EntityFramework.SqlServer.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.Core.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Cors.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.Cookies.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.Jwt.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Microsoft.Owin.Security.OAuth.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Newtonsoft.Json.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Net.Http.Formatting.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.Cors.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.Owin.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\System.Web.Http.WebHost.xml
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\bin\Thinktecture.IdentityModel.Core.pdb
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csprojAssemblyReference.cache
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csproj.CoreCompileInputs.cache
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csproj.CopyComplete
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.dll
+E:\IT K16\Nam 4\LTUDW-Nang Cao\Do An Cuoi Ky\Source Tham Khao\AspNetIdentity.WebApi-master\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.pdb
