@@ -27,8 +27,14 @@
   color: aliceblue;
   font-weight: bold;
   padding: 10px;
+  text-align: center;
 }
 
 .rounded {
   border-radius: 25px;
+}
+
+.errMessage {
+  color: red;
+  text-align: right;
 }

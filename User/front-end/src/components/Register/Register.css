@@ -27,8 +27,14 @@
   color: aliceblue;
   font-weight: bold;
   padding: 10px;
+  text-align: center;
 }
 
 #optRole {
   margin-bottom: 20px;
+}
+
+.errMessage {
+  color: red;
+  text-align: right;
 }

@@ -22,17 +22,65 @@ export default class Login extends Component {
       email: "",
       password: "",
       confirm: "",
-      isTutor: null
+      isTutor: null,
+      message: "*"
     };
   }
 
-  register = () => {
-    //TO DO:
+  register = e => {
+    e.preventDefault();
+
+    this.setState({ isSubmitted: true });
+
+    const { userId, email, password, confirm, isTutor } = this.state;
+
+    if (userId === "") this.setState({ message: "Please input UserID" });
+    else if (email === "") this.setState({ message: "Please input Email" });
+    else if (password === "")
+      this.setState({ message: "Please input Password" });
+    else if (confirm === "") this.setState({ message: "Please input Confirm" });
+    else if (password !== confirm)
+      this.setState({ message: "Confirm password is wrong" });
+    else if (isTutor === null)
+      this.setState({ message: "Please choose your role" });
+    else {
+      //check valid email
+      let lastAtPos = email.lastIndexOf("@");
+      let lastDotPos = email.lastIndexOf(".");
+
+      if (
+        !(
+          lastAtPos < lastDotPos &&
+          lastAtPos > 0 &&
+          email.indexOf("@@") == -1 &&
+          lastDotPos > 2 &&
+          email.length - lastDotPos > 2
+        )
+      ) {
+        this.setState({ message: "Email is invalid" });
+        return;
+      }
+
+      if (userId && password) {
+        this.setState({ message: "Registering account" });
+        userService.register({ name: userId, password: password }).then(
+          data => {
+            if (data.user === null) {
+              this.setState({ message: "This name is existed" });
+            } else {
+              history.push("/login");
+            }
+          },
+          error => {
+            this.setState({ message: "Registration failed" });
+          }
+        );
+      }
+    }
   };
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state);
   };
 
   onOptChanged = e => {
@@ -69,6 +117,7 @@ export default class Login extends Component {
                     <strong>Register</strong>
                   </h3>
                 </div>
+                <p className="errMessage">{this.state.message}</p>
                 <MDBInput
                   label="UserID"
                   name="userId"

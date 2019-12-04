@@ -21,19 +21,31 @@ export default class Login extends Component {
     super(props);
     this.state = {
       userId: "",
-      password: ""
+      password: "",
+      isSubmitted: false,
+      message: "*"
     };
   }
 
-  login = () => {
-    userService.login(this.state.userId, this.state.password).then(
-      user => {
-        history.push("/");
-      },
-      error => {
-        alert("Login failed");
-      }
-    );
+  login = e => {
+    e.preventDefault();
+
+    this.setState({ isSubmitted: true });
+    const { userId, password } = this.state;
+
+    if (userId === "") this.setState({ message: "Please input UserID" });
+    else if (password === "")
+      this.setState({ message: "Please input Password" });
+    else {
+      userService.login(userId, password).then(
+        user => {
+          history.push("/");
+        },
+        error => {
+          alert("Login failed");
+        }
+      );
+    }
   };
 
   onChange = e => {
@@ -69,6 +81,7 @@ export default class Login extends Component {
                     <strong>Sign in</strong>
                   </h3>
                 </div>
+                <p className="errMessage">{this.state.message}</p>
                 <MDBInput
                   label="UserID"
                   name="userId"
