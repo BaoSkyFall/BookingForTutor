@@ -27,24 +27,23 @@ namespace AspNetIdentity.WebApi.Controllers
 
             return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
         }
-
-        [Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         [Route("user/{id:guid}", Name = "GetUserById")]
         public async Task<IHttpActionResult> GetUser(string Id)
         {
             //Only SuperAdmin or Admin can delete users (Later when implement roles)
-            var user = await this.AppUserManager.FindByIdAsync(Id);
+            //var user = await this.AppUserManager.FindByIdAsync(Id);
 
-            if (user != null)
-            {
-                return Ok(this.TheModelFactory.Create(user));
-            }
+            //if (user != null)
+            //{
+            //    return Ok(this.TheModelFactory.Create(user));
+            //}
 
             return NotFound();
 
         }
 
-        [Authorize(Roles = "Admin")]
+        
         [Route("user/{username}")]
         public async Task<IHttpActionResult> GetUserByName(string username)
         {

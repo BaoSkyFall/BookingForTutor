@@ -19,6 +19,7 @@ ReactDOM.render(
       <PrivateRoute path="/" exact component={Home}></PrivateRoute>
       <Route path="/login" exact component={Login}></Route>
       <Route path="/register" exact component={Register}></Route>
+      
       <Redirect to="/"></Redirect>
     </Switch>
   </Router>,

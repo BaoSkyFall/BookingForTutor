@@ -1,11 +1,12 @@
 //import { authHeader } from "../Helpers";
 
-const apiUrl = "http://bookingtutor.somee.com/";
+const apiUrl = "http://localhost:59822";
 
 export const userService = {
   login,
   logout,
-  register
+  register,
+  getUserbyUsername
   //getById,
   //update,
   //delete: _delete
@@ -57,7 +58,6 @@ function register(user) {
     handleResponse
   );
 }
-
 // function update(user) {
 //   const requestOptions = {
 //     method: "PUT",
@@ -79,7 +79,14 @@ function register(user) {
 
 //   return fetch(`${apiUrl}/user/${id}`, requestOptions).then(handleResponse);
 // }
-
+function getUserbyUsername(username) {
+  const requestOptions = {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  };
+  return fetch(`${apiUrl}/api/accounts/user/${username}`, requestOptions).then(
+    handleResponse);
+}
 function handleResponse(response) {
   return response.text().then(text => {
     const data = text && JSON.parse(text);

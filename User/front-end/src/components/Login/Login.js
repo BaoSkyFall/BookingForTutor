@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import FacebookLoginComponent from "./FacebookLogin";
 import GoogleLoginComponent from "./GoogleLogin";
+import SocialLoginConfirmRole from "./SocialLoginConfirmRole";
+
 import {
   MDBContainer,
   MDBRow,
@@ -23,7 +25,8 @@ export default class Login extends Component {
       userId: "",
       password: "",
       isSubmitted: false,
-      message: "*"
+      message: "*",
+      isLoginBySocial: false,
     };
   }
 
@@ -60,16 +63,75 @@ export default class Login extends Component {
   };
 
   loginFBSuccess = response => {
-    // localStorage.setItem("token", response.accessToken);
-    // this.setState({
-    //   isLoggedIn: true,
-    //   userId: response.id,
-    //   name: response.name,
-    //   email: response.email,
-    //   picture: response.picture.data.url
-    // });
+    console.log(response);
+    userService.getUserbyUsername(response.id).then(res => {
+      userService.login(response.id, "123456Abc*").then(res => {
+        history.push('/');
+
+      }, err => {
+        history.push('/');
+
+      })
+
+    }, err => {
+      if (err == "Not Found") {
+        console.log('err:', err);
+        const user = {
+          UserName: response.id,
+          Password: "123456Abc*",
+          ConfirmPassword: "123456Abc*",
+          Email: response.email,
+          FirstName: response.name,
+          LastName: response.name,
+        }
+        localStorage.setItem('userFB', JSON.stringify(user));
+        this.setState({ isLoginBySocial: true })
+      }
+      else {
+        history.push('/');
+      }
+
+
+
+
+    })
+  };
+  loginGGSuccess = response => {
+    console.log(response);
+    userService.getUserbyUsername(response.El).then(res => {
+      userService.login(response.id, "123456Abc*").then(res => {
+        history.push('/');
+
+      }, err => {
+        history.push('/');
+
+      })
+
+    }, err => {
+      if (err == "Not Found") {
+        console.log('err:', err);
+        const user = {
+          UserName: response.El,
+          Password: "123456Abc*",
+          ConfirmPassword: "123456Abc*",
+          Email: response.profileObj.email,
+          FirstName: response.profileObj.familyName,
+          LastName: response.profileObj.givenName,
+        }
+        localStorage.setItem('userFB', JSON.stringify(user));
+        this.setState({ isLoginBySocial: true })
+      }
+      else {
+        history.push('/');
+      }
+
+
+
+
+    })
   };
   render() {
+    const { isLoginBySocial } = this.state;
     let contentLogin = (
       <MDBContainer id="container">
         <p id="banner">Welcome to DoubleB</p>
@@ -126,7 +188,7 @@ export default class Login extends Component {
                     loginSuccess={this.loginFBSuccess}
                     isLoggedIn={this.state.isLoggedIn}
                   />
-                  <GoogleLoginComponent />
+                  <GoogleLoginComponent loginGGSuccess={this.loginGGSuccess}/>
                 </div>
               </MDBCardBody>
               <MDBModalFooter className="mx-5 pt-3 mb-1">
@@ -142,6 +204,9 @@ export default class Login extends Component {
         </MDBRow>
       </MDBContainer>
     );
-    return <div className="bg">{contentLogin}</div>;
+    let contentLoginSocial = (
+      <SocialLoginConfirmRole />
+    )
+    return isLoginBySocial ? <div className="bg">{contentLoginSocial}</div> : <div className="bg">{contentLogin}</div>;
   }
 }
