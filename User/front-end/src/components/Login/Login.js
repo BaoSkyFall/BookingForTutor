@@ -40,6 +40,7 @@ export default class Login extends Component {
       userService.login(userId, password).then(
         user => {
           history.push("/");
+          console.log(localStorage.getItem("token"));
         },
         error => {
           alert("Login failed");

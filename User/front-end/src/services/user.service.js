@@ -13,17 +13,17 @@ export const userService = {
 
 function login(name, password) {
   let value = "grant_type=password&username=" + name + "&password=" + password;
-  console.log('value:', value);
+  console.log("value:", value);
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: value,
+    body: value
   };
 
   return fetch(`${apiUrl}/oauth/token`, requestOptions)
     .then(handleResponse)
     .then(response => {
-      console.log('response:', response)
+      console.log("response:", response);
       // store user details and jwt token in local storage to keep user logged in between page refreshes
       localStorage.setItem("token", JSON.stringify(response.access_token));
 
@@ -33,7 +33,7 @@ function login(name, password) {
 
 function logout() {
   // remove user from local storage to log user out
-  localStorage.removeItem("user");
+  localStorage.removeItem("token");
 }
 
 // function getById(id) {
@@ -53,7 +53,9 @@ function register(user) {
     body: JSON.stringify(user)
   };
 
-  return fetch(`${apiUrl}/api/accounts/create`, requestOptions).then(handleResponse);
+  return fetch(`${apiUrl}/api/accounts/create`, requestOptions).then(
+    handleResponse
+  );
 }
 
 // function update(user) {
