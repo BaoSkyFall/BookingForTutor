@@ -68,10 +68,10 @@ export default class Login extends Component {
       res => {
         userService.login(response.id, "123456Abc*").then(
           res => {
-            // history.push("/");
+            history.push("/");
           },
           err => {
-            // history.push("/");
+            history.push("/");
           }
         );
       },
@@ -89,7 +89,7 @@ export default class Login extends Component {
           localStorage.setItem("userFB", JSON.stringify(user));
           this.setState({ isLoginBySocial: true });
         } else {
-          // history.push("/");
+          history.push("/");
         }
       }
     );
@@ -127,6 +127,7 @@ export default class Login extends Component {
     );
   };
   render() {
+    console.log(localStorage.getItem("user"));
     const { isLoginBySocial } = this.state;
     let contentLogin = (
       <MDBContainer id="container">
