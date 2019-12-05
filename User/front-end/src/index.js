@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Router, Switch, Redirect, Route } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
@@ -19,7 +18,7 @@ ReactDOM.render(
       <PrivateRoute path="/" exact component={Home}></PrivateRoute>
       <Route path="/login" exact component={Login}></Route>
       <Route path="/register" exact component={Register}></Route>
-      
+
       <Redirect to="/"></Redirect>
     </Switch>
   </Router>,

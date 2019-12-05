@@ -15,16 +15,31 @@ import {
 import { BrowserRouter as Router } from "react-router-dom";
 import { history } from "../../helpers/history";
 import "./Home.css";
+import JWT from "jwt-decode";
+import { NavLink } from "react-router-dom";
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       collapse: false,
-      isWideEnough: false
+      isWideEnough: false,
+      user: {
+        nameId: "",
+        role: ""
+      }
     };
     this.onClick = this.onClick.bind(this);
   }
+
+  componentDidMount = () => {
+    const token = localStorage.getItem("token");
+    var decoded = JWT(token);
+    //TO DO
+    this.setState({
+      user: { nameId: decoded.unique_name, role: decoded.role }
+    });
+  };
 
   onClick() {
     this.setState({
@@ -36,6 +51,23 @@ export default class Home extends Component {
     history.push("/login");
   };
   render() {
+    console.log(this.state);
+    const { user } = this.state;
+    let context = "";
+    if (user.role === "Root")
+      context = (
+        <div>
+          <h2>This is Root admin home page</h2>
+          <h5>Hello {user.nameId}</h5>
+        </div>
+      );
+    else
+      context = (
+        <div>
+          <h2>This is admin home page</h2>
+          <h5>Hello {user.nameId}</h5>
+        </div>
+      );
     return (
       // <div>
       //   Home
@@ -71,6 +103,9 @@ export default class Home extends Component {
                   <MDBNavItem>
                     <MDBNavLink to="#">Profile</MDBNavLink>
                   </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink to="/register">Register</MDBNavLink>
+                  </MDBNavItem>
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
                   <MDBNavItem>
@@ -88,20 +123,7 @@ export default class Home extends Component {
               overlay="purple-light"
               className="flex-center flex-column text-white text-center"
             >
-              <h2>This Navbar is fixed</h2>
-              <h5>
-                It will always stay visible on the top, even when you scroll
-                down
-              </h5>
-              <p>
-                Navbar's background will switch from transparent to solid color
-                while scrolling down
-              </p>
-              <br />
-              <p>
-                Full page intro with background image will be always displayed
-                in full screen mode, regardless of device{" "}
-              </p>
+              {context}
             </MDBMask>
           </MDBView>
         </header>

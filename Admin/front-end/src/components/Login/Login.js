@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import FacebookLoginComponent from "./FacebookLogin";
-import GoogleLoginComponent from "./GoogleLogin";
+
 import {
   MDBContainer,
   MDBRow,
@@ -11,7 +10,6 @@ import {
   MDBBtn,
   MDBModalFooter
 } from "mdbreact";
-import { NavLink } from "react-router-dom";
 import "./Login.css";
 import { userService } from "../../services/user.service";
 import { history } from "../../helpers/history";
@@ -42,7 +40,7 @@ export default class Login extends Component {
           history.push("/");
         },
         error => {
-          alert("Login failed");
+          this.setState({ message: "UserID or Password was wrong" });
         }
       );
     }
@@ -52,26 +50,10 @@ export default class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onLogoutFB = () => {
-    // console.log("windown:", window.FB);
-    // window.FB.logout();
-    // console.log(window.FB);
-  };
-
-  loginFBSuccess = response => {
-    // localStorage.setItem("token", response.accessToken);
-    // this.setState({
-    //   isLoggedIn: true,
-    //   userId: response.id,
-    //   name: response.name,
-    //   email: response.email,
-    //   picture: response.picture.data.url
-    // });
-  };
   render() {
     let contentLogin = (
       <MDBContainer id="container">
-        <p id="banner">Welcome to DoubleB</p>
+        <p id="banner">DoubleB admin's page</p>
         <MDBRow>
           <MDBCol md="6" id="inner">
             <MDBCard className="myCard">
@@ -117,30 +99,13 @@ export default class Login extends Component {
                     Sign in
                   </MDBBtn>
                 </div>
-                <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
-                  or Sign in with:
-                </p>
-                <div className="row my-3 d-flex justify-content-center">
-                  <FacebookLoginComponent
-                    loginSuccess={this.loginFBSuccess}
-                    isLoggedIn={this.state.isLoggedIn}
-                  />
-                  <GoogleLoginComponent />
-                </div>
               </MDBCardBody>
-              <MDBModalFooter className="mx-5 pt-3 mb-1">
-                <p className="font-small grey-text d-flex justify-content-end">
-                  Not a member?
-                  <NavLink to="/register">
-                    <span className="blue-text ml-1">Register</span>
-                  </NavLink>
-                </p>
-              </MDBModalFooter>
             </MDBCard>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
     );
+
     return <div className="bg">{contentLogin}</div>;
   }
 }

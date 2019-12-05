@@ -77,18 +77,28 @@ export default class Register extends Component {
 
       if (userId && password) {
         this.setState({ message: "Registering account" });
-        userService.register({ name: userId, password: password }).then(
-          data => {
-            if (data.user === null) {
-              this.setState({ message: "This name is existed" });
-            } else {
-              history.push("/login");
+        userService
+          .register({
+            UserName: userId,
+            Password: password,
+            ConfirmPassword: password,
+            Email: email,
+            FirstName: firstName,
+            LastName: lastName,
+            Role: isTutor
+          })
+          .then(
+            data => {
+              if (data.user === null) {
+                this.setState({ message: "This name is existed" });
+              } else {
+                history.push("/login");
+              }
+            },
+            error => {
+              this.setState({ message: "Registration failed" });
             }
-          },
-          error => {
-            this.setState({ message: "Registration failed" });
-          }
-        );
+          );
       }
     }
   };
@@ -128,7 +138,7 @@ export default class Register extends Component {
               <MDBCardBody className="mx-4">
                 <div className="text-center">
                   <h3 className="dark-grey-text mb-5">
-                    <strong>Register</strong>
+                    <strong>Register admin</strong>
                   </h3>
                 </div>
                 <p className="errMessage">{this.state.message}</p>
@@ -142,7 +152,7 @@ export default class Register extends Component {
                   success="right"
                   onChange={this.onChange}
                 />
-                <MDBInput
+                {/* <MDBInput
                   label="Email"
                   name="email"
                   group
@@ -151,7 +161,7 @@ export default class Register extends Component {
                   error="wrong"
                   success="right"
                   onChange={this.onChange}
-                />
+                /> */}
                 <div>
                   <MDBInput
                     label="First Name"
@@ -194,7 +204,7 @@ export default class Register extends Component {
                   containerClass="mb-0"
                   onChange={this.onChange}
                 />
-                <div id="optRole">
+                {/* <div id="optRole">
                   <select
                     className="browser-default custom-select"
                     onChange={this.onOptChanged}
@@ -203,7 +213,7 @@ export default class Register extends Component {
                     <option value={true}>Tutor</option>
                     <option value={false}>Student</option>
                   </select>
-                </div>
+                </div> */}
                 <div className="text-center mb-3">
                   <MDBBtn
                     type="button"
@@ -218,9 +228,9 @@ export default class Register extends Component {
               </MDBCardBody>
               <MDBModalFooter className="mx-5 pt-3 mb-1">
                 <p className="font-small grey-text d-flex justify-content-end">
-                  Already a member?
-                  <NavLink to="/login">
-                    <span className="blue-text ml-1">Sign in</span>
+                  Done?
+                  <NavLink to="/">
+                    <span className="blue-text ml-1">Go home</span>
                   </NavLink>
                 </p>
               </MDBModalFooter>
