@@ -43,10 +43,9 @@ export default class Login extends Component {
       userService.login(userId, password).then(
         user => {
           history.push("/");
-          console.log(localStorage.getItem("token"));
         },
         error => {
-          alert("Login failed");
+          this.setState({ message: "UserID or Password was wrong" });
         }
       );
     }
@@ -63,7 +62,6 @@ export default class Login extends Component {
   };
 
   loginFBSuccess = response => {
-    console.log(response);
     userService.getUserbyUsername(response.id).then(
       res => {
         userService.login(response.id, "123456Abc*").then(
@@ -95,7 +93,6 @@ export default class Login extends Component {
     );
   };
   loginGGSuccess = response => {
-    console.log(response);
     userService.getUserbyUsername(response.El).then(
       res => {
         userService.login(response.id, "123456Abc*").then(
