@@ -7,7 +7,16 @@ import {
   MDBCardBody,
   MDBInput,
   MDBBtn,
-  MDBModalFooter
+  MDBModalFooter,
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBCollapse,
+  MDBNavbarToggler,
+  MDBNavItem,
+  MDBNavbarNav,
+  MDBNavLink,
+  MDBView,
+  MDBMask
 } from "mdbreact";
 import "./Register.css";
 import { userService } from "../../services/user.service";
@@ -18,6 +27,8 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      collapse: false,
+      isWideEnough: false,
       userId: "",
       email: "",
       firstName: "",
@@ -27,6 +38,13 @@ export default class Register extends Component {
       isTutor: null,
       message: "*"
     };
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    this.setState({
+      collapse: !this.state.collapse
+    });
   }
 
   register = e => {
@@ -129,9 +147,8 @@ export default class Register extends Component {
     // });
   };
   render() {
-    let contentLogin = (
+    let context = (
       <MDBContainer id="container">
-        <p id="banner">Welcome to DoubleB</p>
         <MDBRow>
           <MDBCol md="6" id="inner">
             <MDBCard className="myCard">
@@ -153,15 +170,15 @@ export default class Register extends Component {
                   onChange={this.onChange}
                 />
                 {/* <MDBInput
-                  label="Email"
-                  name="email"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={this.onChange}
-                /> */}
+              label="Email"
+              name="email"
+              group
+              type="text"
+              validate
+              error="wrong"
+              success="right"
+              onChange={this.onChange}
+            /> */}
                 <div>
                   <MDBInput
                     label="First Name"
@@ -205,15 +222,15 @@ export default class Register extends Component {
                   onChange={this.onChange}
                 />
                 {/* <div id="optRole">
-                  <select
-                    className="browser-default custom-select"
-                    onChange={this.onOptChanged}
-                  >
-                    <option>Choose your role</option>
-                    <option value={true}>Tutor</option>
-                    <option value={false}>Student</option>
-                  </select>
-                </div> */}
+              <select
+                className="browser-default custom-select"
+                onChange={this.onOptChanged}
+              >
+                <option>Choose your role</option>
+                <option value={true}>Tutor</option>
+                <option value={false}>Student</option>
+              </select>
+            </div> */}
                 <div className="text-center mb-3">
                   <MDBBtn
                     type="button"
@@ -239,6 +256,61 @@ export default class Register extends Component {
         </MDBRow>
       </MDBContainer>
     );
-    return <div className="bg">{contentLogin}</div>;
+    let contentLogin = (
+      <div>
+        <header>
+          <div>
+            <MDBNavbar
+              color="bg-primary"
+              fixed="top"
+              dark
+              expand="md"
+              scrolling
+              transparent
+            >
+              <MDBNavbarBrand href="/">
+                <strong>DoubleB</strong>
+              </MDBNavbarBrand>
+              {!this.state.isWideEnough && (
+                <MDBNavbarToggler onClick={this.onClick} />
+              )}
+              <MDBCollapse isOpen={this.state.collapse} navbar>
+                <MDBNavbarNav left>
+                  <MDBNavItem>
+                    <MDBNavLink to="/">Home</MDBNavLink>
+                  </MDBNavItem>
+
+                  <MDBNavItem active>
+                    <MDBNavLink to="/register">Register</MDBNavLink>
+                  </MDBNavItem>
+                </MDBNavbarNav>
+                <MDBNavbarNav right>
+                  <MDBNavItem>
+                    <span id="logOutBtn" onClick={() => this.logout()}>
+                      Log Out
+                    </span>
+                  </MDBNavItem>
+                </MDBNavbarNav>
+              </MDBCollapse>
+            </MDBNavbar>
+          </div>
+
+          <MDBView src="https://mdbootstrap.com/img/Photos/Others/img%20(40).jpg">
+            <MDBMask
+              overlay="purple-light"
+              className="flex-center flex-column text-white text-center"
+            >
+              <h2>This is admin register page</h2>
+            </MDBMask>
+          </MDBView>
+        </header>
+        <main>
+          <MDBContainer className="text-center my-5">
+            <div>{context}</div>
+          </MDBContainer>
+        </main>
+      </div>
+    );
+    return <div>{contentLogin}</div>;
   }
 }

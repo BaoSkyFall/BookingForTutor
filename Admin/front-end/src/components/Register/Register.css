@@ -44,3 +44,11 @@
 .myCard {
   margin-bottom: 50px;
 }
+
+#logOutBtn {
+  color: white;
+  background-color: Transparent;
+  cursor: pointer;
+  font-weight: 400;
+  margin-right: 30px;
+}

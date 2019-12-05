@@ -50,6 +50,7 @@ export default class Home extends Component {
     userService.logout();
     history.push("/login");
   };
+
   render() {
     console.log(this.state);
     const { user } = this.state;
@@ -77,7 +78,7 @@ export default class Home extends Component {
       // </div>
       <div>
         <header>
-          <Router>
+          <div>
             <MDBNavbar
               color="bg-primary"
               fixed="top"
@@ -87,7 +88,7 @@ export default class Home extends Component {
               transparent
             >
               <MDBNavbarBrand href="/">
-                <strong>Navbar</strong>
+                <strong>DoubleB</strong>
               </MDBNavbarBrand>
               {!this.state.isWideEnough && (
                 <MDBNavbarToggler onClick={this.onClick} />
@@ -97,14 +98,11 @@ export default class Home extends Component {
                   <MDBNavItem active>
                     <MDBNavLink to="#">Home</MDBNavLink>
                   </MDBNavItem>
+
                   <MDBNavItem>
-                    <MDBNavLink to="#">Link</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#">Profile</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="/register">Register</MDBNavLink>
+                    <div onClick={this.registerAdminClicked}>
+                      <MDBNavLink to="/register">Register</MDBNavLink>
+                    </div>
                   </MDBNavItem>
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
@@ -116,7 +114,7 @@ export default class Home extends Component {
                 </MDBNavbarNav>
               </MDBCollapse>
             </MDBNavbar>
-          </Router>
+          </div>
 
           <MDBView src="https://mdbootstrap.com/img/Photos/Others/img%20(40).jpg">
             <MDBMask
