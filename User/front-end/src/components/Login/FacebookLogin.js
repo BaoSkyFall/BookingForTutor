@@ -12,20 +12,26 @@ export default class FacebookLoginComponent extends Component {
       fbContent = <div></div>;
     } else {
       fbContent = (
-        <MDBBtn
-          type="button"
-          color="white"
-          rounded
-          className="mr-md-3 z-depth-1a"
-        >
-          <FacebookLogin
-              appId="1426065474240213"
-              fields="name,email,picture"
-              onClick={this.componentClicked}
-              callback={this.responseFacebook}
-            />
-          <MDBIcon fab icon="facebook-f" className="blue-text text-center" />
-        </MDBBtn>
+        // <MDBBtn
+        //   type="button"
+        //   color="white"
+        //   rounded
+        //   className="mr-md-3 z-depth-1a"
+        // >
+        //   <FacebookLogin
+        //       appId="1426065474240213"
+        //       fields="name,email,picture"
+        //       onClick={this.componentClicked}
+        //       callback={this.responseFacebook}
+        //     />
+        //   <MDBIcon fab icon="facebook-f" className="blue-text text-center" />
+        // </MDBBtn>
+        <FacebookLogin
+          appId="1426065474240213"
+          fields="name,email,picture"
+          onClick={this.componentClicked}
+          callback={this.responseFacebook}
+        />
       );
     }
     return <div>{fbContent}</div>;

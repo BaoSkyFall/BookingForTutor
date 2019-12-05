@@ -35,7 +35,9 @@ export default class Home extends Component {
     const token = localStorage.getItem("token");
     var decoded = JWT(token);
     //TO DO
-    console.log(decoded);
+    this.setState({
+      user: { nameId: decoded.unique_name, role: decoded.role }
+    });
   };
 
   onClick() {
@@ -48,20 +50,21 @@ export default class Home extends Component {
     history.push("/login");
   };
   render() {
-    const { role } = this.state;
+    console.log(this.state);
+    const { user } = this.state;
     let context = "";
-    if (role === "Tutor")
+    if (user.role === "Tutor")
       context = (
         <div>
           <h2>This is Tutor home page</h2>
-          <h5>Hello</h5>
+          <h5>Hello {user.nameId}</h5>
         </div>
       );
     else
       context = (
         <div>
           <h2>This is student home page</h2>
-          <h5>Hello</h5>
+          <h5>Hello {user.nameId}</h5>
         </div>
       );
     return (

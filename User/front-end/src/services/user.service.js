@@ -1,6 +1,6 @@
 //import { authHeader } from "../Helpers";
 
-const apiUrl = "http://localhost:59822";
+const apiUrl = "http://bookingtutor.somee.com/";
 
 export const userService = {
   login,
@@ -82,10 +82,11 @@ function register(user) {
 function getUserbyUsername(username) {
   const requestOptions = {
     method: "GET",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json" }
   };
   return fetch(`${apiUrl}/api/accounts/user/${username}`, requestOptions).then(
-    handleResponse);
+    handleResponse
+  );
 }
 function handleResponse(response) {
   return response.text().then(text => {

@@ -12,16 +12,23 @@ export default class GoogleLoginComponent extends Component {
   };
   render() {
     return (
-      <MDBBtn type="button" color="white" rounded className="z-depth-1a">
-        <GoogleLogin
-          clientId="218954437526-oc51tgg875t9m2j90aemmu006lc1d9a5.apps.googleusercontent.com"
-          buttonText=""
-          onSuccess={this.successGoogle}
-          onFailure={this.failureGoogle}
-          cookiePolicy={"single_host_origin"}
-        />
-        <MDBIcon fab icon="google-plus-g" className="blue-text" />
-      </MDBBtn>
+      // <MDBBtn type="button" color="white" rounded className="z-depth-1a">
+      //   <GoogleLogin
+      //     clientId="218954437526-oc51tgg875t9m2j90aemmu006lc1d9a5.apps.googleusercontent.com"
+      //     buttonText=""
+      //     onSuccess={this.successGoogle}
+      //     onFailure={this.failureGoogle}
+      //     cookiePolicy={"single_host_origin"}
+      //   />
+      //   <MDBIcon fab icon="google-plus-g" className="blue-text" />
+      // </MDBBtn>
+      <GoogleLogin
+        clientId="218954437526-oc51tgg875t9m2j90aemmu006lc1d9a5.apps.googleusercontent.com"
+        buttonText="Login with Google"
+        onSuccess={this.successGoogle}
+        onFailure={this.failureGoogle}
+        cookiePolicy={"single_host_origin"}
+      />
     );
   }
 }
