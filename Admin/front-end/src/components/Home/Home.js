@@ -80,7 +80,7 @@ export default class Home extends Component {
         <header>
           <div>
             <MDBNavbar
-              color="bg-primary"
+              color="indigo"
               fixed="top"
               dark
               expand="md"
@@ -116,7 +116,7 @@ export default class Home extends Component {
             </MDBNavbar>
           </div>
 
-          <MDBView src="https://mdbootstrap.com/img/Photos/Others/img%20(40).jpg">
+          <MDBView src="https://mdbootstrap.com/img/Photos/Others/img%20(50).jpg">
             <MDBMask
               overlay="purple-light"
               className="flex-center flex-column text-white text-center"

@@ -30,12 +30,10 @@ export default class Register extends Component {
       collapse: false,
       isWideEnough: false,
       userId: "",
-      email: "",
       firstName: "",
       lastName: "",
       password: "",
       confirm: "",
-      isTutor: null,
       message: "*"
     };
     this.onClick = this.onClick.bind(this);
@@ -52,18 +50,9 @@ export default class Register extends Component {
 
     this.setState({ isSubmitted: true });
 
-    const {
-      userId,
-      email,
-      firstName,
-      lastName,
-      password,
-      confirm,
-      isTutor
-    } = this.state;
+    const { userId, firstName, lastName, password, confirm } = this.state;
 
     if (userId === "") this.setState({ message: "Please input UserID" });
-    else if (email === "") this.setState({ message: "Please input Email" });
     else if (firstName === "")
       this.setState({ message: "Please input First Name" });
     else if (lastName === "")
@@ -73,26 +62,7 @@ export default class Register extends Component {
     else if (confirm === "") this.setState({ message: "Please input Confirm" });
     else if (password !== confirm)
       this.setState({ message: "Confirm password is wrong" });
-    else if (isTutor === null)
-      this.setState({ message: "Please choose your role" });
     else {
-      //check valid email
-      let lastAtPos = email.lastIndexOf("@");
-      let lastDotPos = email.lastIndexOf(".");
-
-      if (
-        !(
-          lastAtPos < lastDotPos &&
-          lastAtPos > 0 &&
-          email.indexOf("@@") == -1 &&
-          lastDotPos > 2 &&
-          email.length - lastDotPos > 2
-        )
-      ) {
-        this.setState({ message: "Email is invalid" });
-        return;
-      }
-
       if (userId && password) {
         this.setState({ message: "Registering account" });
         userService
@@ -100,10 +70,8 @@ export default class Register extends Component {
             UserName: userId,
             Password: password,
             ConfirmPassword: password,
-            Email: email,
             FirstName: firstName,
-            LastName: lastName,
-            Role: isTutor
+            LastName: lastName
           })
           .then(
             data => {
@@ -234,7 +202,7 @@ export default class Register extends Component {
                 <div className="text-center mb-3">
                   <MDBBtn
                     type="button"
-                    gradient="blue"
+                    gradient="purple"
                     rounded
                     className="btn-block z-depth-1a"
                     onClick={this.register}
@@ -261,7 +229,7 @@ export default class Register extends Component {
         <header>
           <div>
             <MDBNavbar
-              color="bg-primary"
+              color="purple"
               fixed="top"
               dark
               expand="md"
@@ -295,7 +263,7 @@ export default class Register extends Component {
             </MDBNavbar>
           </div>
 
-          <MDBView src="https://mdbootstrap.com/img/Photos/Others/img%20(40).jpg">
+          <MDBView src="https://mdbootstrap.com/img/Photos/Others/img%20(50).jpg">
             <MDBMask
               overlay="purple-light"
               className="flex-center flex-column text-white text-center"
