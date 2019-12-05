@@ -86,7 +86,7 @@ export default class Home extends Component {
               transparent
             >
               <MDBNavbarBrand href="/">
-                <strong>Navbar</strong>
+                <strong>DoubleB</strong>
               </MDBNavbarBrand>
               {!this.state.isWideEnough && (
                 <MDBNavbarToggler onClick={this.onClick} />
