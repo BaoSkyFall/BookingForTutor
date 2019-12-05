@@ -55,13 +55,15 @@ export default class Home extends Component {
     console.log(this.state);
     const { user } = this.state;
     let context = "";
-    if (user.role === "Root")
+    if (user.role != "Admin") {
       context = (
         <div>
           <h2>This is Root admin home page</h2>
           <h5>Hello {user.nameId}</h5>
         </div>
       );
+  
+    }
     else
       context = (
         <div>

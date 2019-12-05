@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import JWT from "jwt-decode";
 import {
   MDBContainer,
   MDBRow,
@@ -37,7 +37,19 @@ export default class Login extends Component {
     else {
       userService.login(userId, password).then(
         user => {
-          history.push("/");
+          var decoded = JWT(user.access_token);
+
+          userService.getUserbyUsername(decoded.unique_name).then(data => {
+            console.log('data:', data)
+            if (data.Roles[0] === "Admin") {
+              history.push("/")
+            }
+            else {
+              localStorage.removeItem("token");
+              this.setState({ message: "You are not Admin to access this site" });
+              history.push("/login");
+            }
+          })
         },
         error => {
           this.setState({ message: "UserID or Password was wrong" });
