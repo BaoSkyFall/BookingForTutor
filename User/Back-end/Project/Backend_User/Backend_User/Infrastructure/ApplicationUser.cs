@@ -22,7 +22,9 @@ namespace AspNetIdentity.WebApi.Infrastructure
 
         [Required]
         public byte Level { get; set; }
-
+        [Required]
+        public Boolean isAdmin { get; set; }
+        public byte[] Avatar { get; set; }
         [Required]
         public DateTime JoinDate { get; set; }
 

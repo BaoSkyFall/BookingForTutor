@@ -23,7 +23,7 @@ namespace AspNetIdentity.WebApi.Controllers
         public IHttpActionResult GetUsers()
         {
             //Only SuperAdmin or Admin can delete users (Later when implement roles)
-            var identity = User.Identity as System.Security.Claims.ClaimsIdentity;
+            //var identity = User.Identity as System.Security.Claims.ClaimsIdentity;
 
             return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
         }
@@ -189,6 +189,128 @@ namespace AspNetIdentity.WebApi.Controllers
 
             return Ok("Change Password Successfully");
         }
+        [Route("user/avatar/{username}")]
+        public async Task<IHttpActionResult> PutAvatar(string username, [FromBody] byte[] avatar)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+
+                var appUser = await this.AppUserManager.FindByNameAsync(username);
+
+                appUser.Avatar = avatar;
+                var result = await this.AppUserManager.UpdateAsync(appUser);
+                if (result.Succeeded)
+                {
+                    return Ok("Update Avatar OK!");
+                }
+                else
+                {
+                    return GetErrorResult(result);
+                }
+                //db.Entry(car).State = EntityState.Modified;
+
+                //if (car.img == null || car.img.Length == 0)
+                //{
+                //    db.Entry(car).Property(x => x.img).IsModified = false;
+
+                //}
+
+
+                //try
+                //{
+                //    await db.SaveChangesAsync();
+                //}
+                //catch (DbUpdateConcurrencyException)
+                //{
+                //    if (!CarExists(id))
+                //    {
+                //        return NotFound();
+                //    }
+                //    else
+                //    {
+                //        throw;
+                //    }
+                //}
+
+
+                //return StatusCode(HttpStatusCode.NoContent);
+                //return Json(car);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        [Route("user/{username}")]
+        public async Task<IHttpActionResult> PutUser(string username, UpdateUserBindingModel user)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (username != user.Username)
+                {
+                    return BadRequest();
+                }
+                var appUser = await this.AppUserManager.FindByEmailAsync(user.Email);
+                appUser.FirstName = user.FirstName;
+                appUser.LastName = user.LastName;
+                appUser.Email = user.Email;
+                var result = await this.AppUserManager.UpdateAsync(appUser);
+                if (result.Succeeded)
+                {
+                    return Ok("Update Successfull!");
+                }
+                else
+                {
+                    return GetErrorResult(result);
+                }
+                //db.Entry(car).State = EntityState.Modified;
+
+                    //if (car.img == null || car.img.Length == 0)
+                    //{
+                    //    db.Entry(car).Property(x => x.img).IsModified = false;
+
+                    //}
+
+
+                    //try
+                    //{
+                    //    await db.SaveChangesAsync();
+                    //}
+                    //catch (DbUpdateConcurrencyException)
+                    //{
+                    //    if (!CarExists(id))
+                    //    {
+                    //        return NotFound();
+                    //    }
+                    //    else
+                    //    {
+                    //        throw;
+                    //    }
+                    //}
+
+
+                    //return StatusCode(HttpStatusCode.NoContent);
+                    //return Json(car);
+                }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
 
         [Authorize(Roles = "Admin")]
         [Route("user/{id:guid}")]
@@ -215,14 +337,14 @@ namespace AspNetIdentity.WebApi.Controllers
             return NotFound();
           
         }
-
-        [Authorize(Roles="Admin")]
-        [Route("user/{id:guid}/roles")]
+        //AssignRoles
+        //[Authorize(Roles="Admin")]
+        [Route("user/{username}/roles")]
         [HttpPut]
-        public async Task<IHttpActionResult> AssignRolesToUser([FromUri] string id, [FromBody] string[] rolesToAssign)
+        public async Task<IHttpActionResult> AssignRolesToUser([FromUri] string username, [FromBody] string[] rolesToAssign)
         {
 
-            var appUser = await this.AppUserManager.FindByIdAsync(id);
+            var appUser = await this.AppUserManager.FindByNameAsync(username);
 
             if (appUser == null)
             {
