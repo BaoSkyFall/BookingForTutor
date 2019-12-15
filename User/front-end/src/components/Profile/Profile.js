@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { userService } from "../../services/user.service";
 import { MDBContainer } from "mdbreact";
 import { history } from "../../helpers/history";
-import "./Home.css";
+import "./Profile.css";
 import JWT from "jwt-decode";
 import MyNavBar from "../MyNavBar/MyNavBar";
 
-export default class Home extends Component {
+export default class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
+      userInTokem: {
         nameId: "",
         role: ""
       }
@@ -22,7 +22,7 @@ export default class Home extends Component {
     var decoded = JWT(token);
     //TO DO
     this.setState({
-      user: { nameId: decoded.unique_name, role: decoded.role }
+      userInTokem: { nameId: decoded.unique_name, role: decoded.role }
     });
   };
 
@@ -32,20 +32,20 @@ export default class Home extends Component {
   };
   render() {
     console.log(this.state);
-    const { user } = this.state;
+    const { userInTokem } = this.state;
     let header = "";
-    if (user.role === "Tutor")
+    if (userInTokem.role === "Tutor")
       header = (
         <div>
-          <h2>This is Tutor home page</h2>
-          <h5>Hello {user.nameId}</h5>
+          <h2>This is Tutor profile page</h2>
+          <h5>Hello {userInTokem.nameId}</h5>
         </div>
       );
     else
       header = (
         <div>
-          <h2>This is student home page</h2>
-          <h5>Hello {user.nameId}</h5>
+          <h2>This is student profile page</h2>
+          <h5>Hello {userInTokem.nameId}</h5>
         </div>
       );
     return (
@@ -56,7 +56,7 @@ export default class Home extends Component {
       //   </button>
       // </div>
       <div>
-        <MyNavBar active="Home" header={header}></MyNavBar>
+        <MyNavBar active="Profile" header={header}></MyNavBar>
 
         <main>
           <MDBContainer className="text-center my-5">
