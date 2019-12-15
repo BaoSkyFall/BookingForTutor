@@ -6,6 +6,31 @@ using System.Web;
 
 namespace AspNetIdentity.WebApi.Models
 {
+    public class UpdateUserBindingModel
+    {
+
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+     
+
+
+    }
     public class CreateUserBindingModel
     {
         [Required]

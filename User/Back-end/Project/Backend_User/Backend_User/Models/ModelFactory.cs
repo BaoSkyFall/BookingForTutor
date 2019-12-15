@@ -33,7 +33,9 @@ namespace AspNetIdentity.WebApi.Models
                 EmailConfirmed = appUser.EmailConfirmed,
                 Level = appUser.Level,
                 JoinDate = appUser.JoinDate,
+                Avatar = appUser.Avatar,
                 Roles = _AppUserManager.GetRolesAsync(appUser.Id).Result,
+                isAdmin = appUser.isAdmin,
                 Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result
             };
 
@@ -59,6 +61,9 @@ namespace AspNetIdentity.WebApi.Models
         public string UserName { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
+        public Boolean isAdmin { get; set; }
+        public byte[] Avatar { get; set; }
+
         public bool EmailConfirmed { get; set; }
         public int Level { get; set; }
         public DateTime JoinDate { get; set; }
