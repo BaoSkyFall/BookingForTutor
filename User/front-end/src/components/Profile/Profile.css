@@ -1,0 +1,63 @@
+.profile {
+  margin-top: 40px;
+}
+
+.profile .image-wrapper {
+  text-align: center;
+  position: relative;
+}
+
+.profile .image-wrapper .button {
+  position: absolute;
+  top: 80%;
+  left: 70%;
+}
+
+.profile .profile-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  max-width: 80%;
+  border-radius: 50%;
+}
+
+.profile .profile-details {
+  text-align: center;
+}
+
+.profile .profile-details span,
+.profile .profile-details svg {
+  vertical-align: middle;
+}
+
+.profile .editButton {
+  cursor: pointer;
+}
+
+.profile hr {
+  border: none;
+  margin: 0 0 10px 0;
+}
+
+.profile .profile-details .name {
+  font-size: 150%;
+  color: rgba(20, 129, 218, 0.842);
+}
+
+.profile .profile-details i {
+  color: blue;
+  margin-right: 5px;
+}
+
+.profile .profile-details .skill-tag {
+  color: white;
+  background-color: green;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.profile .profile-details .skill-list-container {
+  text-align: left;
+}
