@@ -7,6 +7,7 @@ import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 import { history } from "./helpers/history";
 import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
+import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
@@ -18,7 +19,7 @@ ReactDOM.render(
       <PrivateRoute path="/" exact component={Home}></PrivateRoute>
       <Route path="/login" exact component={Login}></Route>
       <Route path="/register" exact component={Register}></Route>
-
+      <PrivateRoute path="/profile" exact component={Profile}></PrivateRoute>
       <Redirect to="/"></Redirect>
     </Switch>
   </Router>,

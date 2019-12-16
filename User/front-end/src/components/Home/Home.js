@@ -1,34 +1,20 @@
 import React, { Component } from "react";
 import { userService } from "../../services/user.service";
-import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBNavItem,
-  MDBNavLink,
-  MDBContainer,
-  MDBMask,
-  MDBView
-} from "mdbreact";
-import { BrowserRouter as Router } from "react-router-dom";
+import { MDBContainer } from "mdbreact";
 import { history } from "../../helpers/history";
 import "./Home.css";
 import JWT from "jwt-decode";
+import MyNavBar from "../MyNavBar/MyNavBar";
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapse: false,
-      isWideEnough: false,
       user: {
         nameId: "",
         role: ""
       }
     };
-    this.onClick = this.onClick.bind(this);
   }
 
   componentDidMount = () => {
@@ -40,11 +26,6 @@ export default class Home extends Component {
     });
   };
 
-  onClick() {
-    this.setState({
-      collapse: !this.state.collapse
-    });
-  }
   logout = () => {
     userService.logout();
     history.push("/login");
@@ -52,16 +33,16 @@ export default class Home extends Component {
   render() {
     console.log(this.state);
     const { user } = this.state;
-    let context = "";
+    let header = "";
     if (user.role === "Tutor")
-      context = (
+      header = (
         <div>
           <h2>This is Tutor home page</h2>
           <h5>Hello {user.nameId}</h5>
         </div>
       );
     else
-      context = (
+      header = (
         <div>
           <h2>This is student home page</h2>
           <h5>Hello {user.nameId}</h5>
@@ -75,54 +56,7 @@ export default class Home extends Component {
       //   </button>
       // </div>
       <div>
-        <header>
-          <Router>
-            <MDBNavbar
-              color="bg-primary"
-              fixed="top"
-              dark
-              expand="md"
-              scrolling
-              transparent
-            >
-              <MDBNavbarBrand href="/">
-                <strong>DoubleB</strong>
-              </MDBNavbarBrand>
-              {!this.state.isWideEnough && (
-                <MDBNavbarToggler onClick={this.onClick} />
-              )}
-              <MDBCollapse isOpen={this.state.collapse} navbar>
-                <MDBNavbarNav left>
-                  <MDBNavItem active>
-                    <MDBNavLink to="#">Home</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#">Link</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="#">Profile</MDBNavLink>
-                  </MDBNavItem>
-                </MDBNavbarNav>
-                <MDBNavbarNav right>
-                  <MDBNavItem>
-                    <span id="logOutBtn" onClick={() => this.logout()}>
-                      Log Out
-                    </span>
-                  </MDBNavItem>
-                </MDBNavbarNav>
-              </MDBCollapse>
-            </MDBNavbar>
-          </Router>
-
-          <MDBView src="https://mdbootstrap.com/img/Photos/Others/img%20(40).jpg">
-            <MDBMask
-              overlay="purple-light"
-              className="flex-center flex-column text-white text-center"
-            >
-              {context}
-            </MDBMask>
-          </MDBView>
-        </header>
+        <MyNavBar active="Home" header={header}></MyNavBar>
 
         <main>
           <MDBContainer className="text-center my-5">
