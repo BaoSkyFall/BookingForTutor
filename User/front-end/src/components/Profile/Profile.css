@@ -7,10 +7,19 @@
   position: relative;
 }
 
-.profile .image-wrapper .button {
+.profile .image-wrapper button {
   position: absolute;
-  top: 80%;
-  left: 70%;
+  top: 85%;
+  left: 75%;
+  color: blue;
+  background-color: Transparent;
+  border: none;
+  border-radius: 50%;
+}
+
+.profile .image-wrapper button:hover {
+  background-image: none;
+  background-color: gray;
 }
 
 .profile .profile-image {
@@ -49,9 +58,43 @@
   margin-right: 5px;
 }
 
-.profile .profile-details .skill-tag {
+.profile .profile-details .skill-tag0 {
   color: white;
-  background-color: green;
+  background-color: rebeccapurple;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.profile .profile-details .skill-tag1 {
+  color: white;
+  background-color: brown;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 0 5px;
+}
+.profile .profile-details .skill-tag2 {
+  color: white;
+  background-color: purple;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 0 5px;
+}
+.profile .profile-details .skill-tag3 {
+  color: white;
+  background-color: orchid;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.profile .profile-details .skill-tag4 {
+  color: white;
+  background-color: teal;
   margin-left: 10px;
   margin-top: 10px;
   display: inline-block;
