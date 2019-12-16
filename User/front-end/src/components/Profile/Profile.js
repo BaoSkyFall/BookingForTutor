@@ -65,7 +65,8 @@ export default class Profile extends Component {
           label: "skill thu 3",
           value: "skill thu 3"
         }
-      ]
+      ],
+      errMessage: "*"
     };
   }
 
@@ -110,26 +111,58 @@ export default class Profile extends Component {
   };
 
   onEditProfileChangeValue = e => {
-    const objName = e.target.name;
+    const { name, value } = e.target;
     this.setState(prevState => ({
-      tempUser: { ...prevState.tempUser, [objName]: e.target.value }
+      tempUser: { ...prevState.tempUser, [name]: value }
     }));
-    console.log(this.state.tempUser);
   };
 
   handleSkillSelected = selected => {
-    console.log(selected);
     this.setState(prevState => ({
       tempUser: { ...prevState.tempUser, skillList: selected }
     }));
   };
 
   saveProfileChanges = () => {
+    //check valid value
     const { tempUser } = this.state;
-    this.setState({
-      modal: !this.state.modal,
-      user: tempUser
-    });
+    if (tempUser.firstName === "")
+      this.setState({ errMessage: "Please input First name" });
+    else if (tempUser.lastName === "")
+      this.setState({ errMessage: "Please input Last name" });
+    else if (tempUser.email === "")
+      this.setState({ errMessage: "Please input Email" });
+    else if (tempUser.address === "")
+      this.setState({ errMessage: "Please input Address" });
+    else if (tempUser.number === "")
+      this.setState({ errMessage: "Please input Phone number" });
+    else if (tempUser.description === "")
+      this.setState({ errMessage: "Please input Description" });
+    else {
+      //check valid email
+
+      const email = tempUser.email;
+      let lastAtPos = email.lastIndexOf("@");
+      let lastDotPos = email.lastIndexOf(".");
+
+      if (
+        !(
+          lastAtPos < lastDotPos &&
+          lastAtPos > 0 &&
+          email.indexOf("@@") == -1 &&
+          lastDotPos > 2 &&
+          email.length - lastDotPos > 2
+        )
+      ) {
+        this.setState({ errMessage: "Email is invalid" });
+        return;
+      }
+
+      this.setState({
+        modal: !this.state.modal,
+        user: tempUser
+      });
+    }
     //Bao
     //call api
   };
@@ -191,6 +224,7 @@ export default class Profile extends Component {
                       <input
                         type="file"
                         accept="image/*"
+                        data-max-size="32154"
                         id="imageInput"
                         hidden
                         onChange={this.handleAvatarChanged}
@@ -236,9 +270,12 @@ export default class Profile extends Component {
               </MDBCol>
             </MDBRow>
 
-            <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-              <MDBModalHeader toggle={this.toggle}>Edit profile</MDBModalHeader>
+            <MDBModal isOpen={this.state.modal} toggle={this.closeDialog}>
+              <MDBModalHeader toggle={this.closeDialog}>
+                Edit profile
+              </MDBModalHeader>
               <MDBModalBody>
+                <p className="errMessage">{this.state.errMessage}</p>
                 <MDBInput
                   label="First name"
                   name="firstName"
@@ -287,7 +324,7 @@ export default class Profile extends Component {
                   label="Phone number"
                   name="number"
                   group
-                  type="text"
+                  type="number"
                   validate
                   error="wrong"
                   success="right"

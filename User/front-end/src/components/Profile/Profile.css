@@ -104,3 +104,9 @@
 .profile .profile-details .skill-list-container {
   text-align: left;
 }
+
+.errMessage {
+  color: red;
+  text-align: right;
+  display: block;
+}
