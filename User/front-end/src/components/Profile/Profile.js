@@ -17,7 +17,7 @@ import { history } from "../../helpers/history";
 import "./Profile.css";
 import JWT from "jwt-decode";
 import MyNavBar from "../MyNavBar/MyNavBar";
-import MultiSelect from "@khanacademy/react-multi-select";
+import EditDialog from "./EditDialog";
 
 export default class Profile extends Component {
   constructor(props) {
@@ -40,32 +40,7 @@ export default class Profile extends Component {
         description:
           "Toi la 1 giao vien gioi, Toi la 1 giao vien gioi, Toi la 1 giao vien gioi, Toi la 1 giao vien gioi",
         skillList: ["skill thu 1"]
-      },
-      tempUser: {
-        firstName: "",
-        lastName: "",
-        role: "",
-        avatarUrl: "",
-        email: "",
-        address: "",
-        number: "",
-        description: "",
-        skillList: []
-      },
-      listOfSkills: [
-        {
-          label: "skill thu 1",
-          value: "skill thu 1"
-        },
-        {
-          label: "skill thu 2",
-          value: "skill thu 2"
-        },
-        {
-          label: "skill thu 3",
-          value: "skill thu 3"
-        }
-      ]
+      }
     };
   }
 
@@ -78,19 +53,9 @@ export default class Profile extends Component {
 
     //Bao
     //get user's profile
-    //Bao
-    //get skill
   };
 
-  openDialog = () => {
-    const { user } = this.state;
-    this.setState({
-      modal: !this.state.modal,
-      tempUser: user
-    });
-  };
-
-  closeDialog = () => {
+  toggleDialog = () => {
     this.setState({
       modal: !this.state.modal
     });
@@ -109,26 +74,10 @@ export default class Profile extends Component {
     imgInput.click();
   };
 
-  onEditProfileChangeValue = e => {
-    const objName = e.target.name;
-    this.setState(prevState => ({
-      tempUser: { ...prevState.tempUser, [objName]: e.target.value }
-    }));
-    console.log(this.state.tempUser);
-  };
-
-  handleSkillSelected = selected => {
-    console.log(selected);
-    this.setState(prevState => ({
-      tempUser: { ...prevState.tempUser, skillList: selected }
-    }));
-  };
-
-  saveProfileChanges = () => {
-    const { tempUser } = this.state;
+  saveProfileChanges = res => {
     this.setState({
       modal: !this.state.modal,
-      user: tempUser
+      user: res
     });
     //Bao
     //call api
@@ -191,6 +140,7 @@ export default class Profile extends Component {
                       <input
                         type="file"
                         accept="image/*"
+                        data-max-size="32154"
                         id="imageInput"
                         hidden
                         onChange={this.handleAvatarChanged}
@@ -228,7 +178,7 @@ export default class Profile extends Component {
 
                       <div>{this.renderSkillListContainer()}</div>
                     </div>
-                    <MDBBtn color="primary" onClick={this.openDialog}>
+                    <MDBBtn color="primary" onClick={this.toggleDialog}>
                       Edit
                     </MDBBtn>
                   </MDBCardBody>
@@ -236,92 +186,12 @@ export default class Profile extends Component {
               </MDBCol>
             </MDBRow>
 
-            <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-              <MDBModalHeader toggle={this.toggle}>Edit profile</MDBModalHeader>
-              <MDBModalBody>
-                <MDBInput
-                  label="First name"
-                  name="firstName"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={this.onEditProfileChangeValue}
-                  valueDefault={this.state.tempUser.firstName}
-                />
-                <MDBInput
-                  label="Last name"
-                  name="lastName"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={this.onEditProfileChangeValue}
-                  valueDefault={this.state.tempUser.lastName}
-                />
-                <MDBInput
-                  label="Email"
-                  name="email"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={this.onEditProfileChangeValue}
-                  valueDefault={this.state.tempUser.email}
-                />
-                <MDBInput
-                  label="Address"
-                  name="address"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={this.onEditProfileChangeValue}
-                  valueDefault={this.state.tempUser.address}
-                />
-                <MDBInput
-                  label="Phone number"
-                  name="number"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={this.onEditProfileChangeValue}
-                  valueDefault={this.state.tempUser.number}
-                />
-                <MDBInput
-                  label="Description"
-                  name="description"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={this.onEditProfileChangeValue}
-                  valueDefault={this.state.tempUser.description}
-                />
-                <MultiSelect
-                  options={this.state.listOfSkills}
-                  selected={this.state.tempUser.skillList}
-                  onSelectedChanged={selected =>
-                    this.handleSkillSelected(selected)
-                  }
-                />
-              </MDBModalBody>
-              <MDBModalFooter>
-                <MDBBtn color="secondary" onClick={this.closeDialog}>
-                  Close
-                </MDBBtn>
-                <MDBBtn color="primary" onClick={this.saveProfileChanges}>
-                  Save changes
-                </MDBBtn>
-              </MDBModalFooter>
-            </MDBModal>
+            <EditDialog
+              user={this.state.user}
+              closeDialog={this.toggleDialog}
+              modal={this.state.modal}
+              saveProfileChanges={this.saveProfileChanges}
+            ></EditDialog>
           </MDBContainer>
         </main>
       </div>
