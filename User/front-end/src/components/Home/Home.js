@@ -28,7 +28,6 @@ export default class Home extends Component {
     }
   };
 
-  
   render() {
     console.log(this.state);
     const { user } = this.state;
@@ -47,7 +46,6 @@ export default class Home extends Component {
           <h5>Hello {user.nameId}</h5>
         </div>
       );
-    let homepage = "";
     let AuthedHome = (
       <div>
         <MyNavBar active="Home" header={header}></MyNavBar>
