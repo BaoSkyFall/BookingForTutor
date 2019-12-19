@@ -12,6 +12,8 @@ import {
   MDBView
 } from "mdbreact";
 import "./MyNavBar.css";
+import { userService } from "../../services/user.service";
+import { history } from "../../helpers/history";
 
 class MyNavBar extends React.Component {
   constructor(props) {
@@ -28,6 +30,10 @@ class MyNavBar extends React.Component {
       collapse: !this.state.collapse
     });
   }
+  logout = () => {
+    userService.logout();
+    history.push("/login");
+  };
 
   render() {
     return (

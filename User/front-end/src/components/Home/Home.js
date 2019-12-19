@@ -1,35 +1,34 @@
 import React, { Component } from "react";
-import { userService } from "../../services/user.service";
+
 import { MDBContainer } from "mdbreact";
-import { history } from "../../helpers/history";
 import "./Home.css";
 import JWT from "jwt-decode";
 import MyNavBar from "../MyNavBar/MyNavBar";
+import UnAuthHome from "./UnAuthHome";
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       user: {
-        nameId: "",
-        role: ""
+        nameId: null,
+        role: null
       }
     };
   }
 
   componentDidMount = () => {
     const token = localStorage.getItem("token");
-    var decoded = JWT(token);
-    //TO DO
-    this.setState({
-      user: { nameId: decoded.unique_name, role: decoded.role }
-    });
+    if (token !== null) {
+      var decoded = JWT(token);
+      //TO DO
+      this.setState({
+        user: { nameId: decoded.unique_name, role: decoded.role }
+      });
+    }
   };
 
-  logout = () => {
-    userService.logout();
-    history.push("/login");
-  };
+  
   render() {
     console.log(this.state);
     const { user } = this.state;
@@ -41,20 +40,15 @@ export default class Home extends Component {
           <h5>Hello {user.nameId}</h5>
         </div>
       );
-    else
+    else if (user.role !== null)
       header = (
         <div>
           <h2>This is student home page</h2>
           <h5>Hello {user.nameId}</h5>
         </div>
       );
-    return (
-      // <div>
-      //   Home
-      //   <button variant="warning" text="light" onClick={() => this.logout()}>
-      //     Logout
-      //   </button>
-      // </div>
+    let homepage = "";
+    let AuthedHome = (
       <div>
         <MyNavBar active="Home" header={header}></MyNavBar>
 
@@ -78,6 +72,18 @@ export default class Home extends Component {
             </p>
           </MDBContainer>
         </main>
+      </div>
+    );
+    return (
+      // <div>
+      //   Home
+      //   <button variant="warning" text="light" onClick={() => this.logout()}>
+      //     Logout
+      //   </button>
+      // </div>
+      <div>
+        {user.nameId === null && <UnAuthHome></UnAuthHome>}
+        {user.nameId !== null && AuthedHome}
       </div>
     );
   }

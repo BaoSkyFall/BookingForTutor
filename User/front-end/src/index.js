@@ -9,14 +9,14 @@ import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "bootstrap-css-only/css/bootstrap.min.css";
+// import "@fortawesome/fontawesome-free/css/all.min.css";
+// import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 
 ReactDOM.render(
   <Router history={history}>
     <Switch>
-      <PrivateRoute path="/" exact component={Home}></PrivateRoute>
+      <Route path="/" exact component={Home}></Route>
       <Route path="/login" exact component={Login}></Route>
       <Route path="/register" exact component={Register}></Route>
       <PrivateRoute path="/profile" exact component={Profile}></PrivateRoute>
