@@ -46,7 +46,7 @@ export default class HomePage extends Component {
       user: { nameId: "Hai binh", role: "Root" }
     });
     document.body.className = "";
-    document.body.classList.add("hold-transition");
+    document.body.classList.add("fixed");
     document.body.classList.add("skin-blue");
     document.body.classList.add("sidebar-mini");
   };

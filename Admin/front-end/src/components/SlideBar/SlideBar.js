@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default class SlideBar extends Component {
   render() {
     return (
-      <div className="fixed">
+      <div>
         <aside className="main-sidebar">
           {/* sidebar: style can be found in sidebar.less */}
           <section className="sidebar">
@@ -75,9 +75,9 @@ export default class SlideBar extends Component {
                 </ul>
               </li>
               <li className="a">
-                <a href="fake_url">
+                <NavLink to="/skillTags">
                   <i className="fa fa-tags" /> <span>SkillTags</span>
-                </a>
+                </NavLink>
               </li>
 
               <li className="header">LABELS</li>
