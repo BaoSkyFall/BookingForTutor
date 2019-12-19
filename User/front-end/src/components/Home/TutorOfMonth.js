@@ -4,7 +4,6 @@ export default class TutorOfMonth extends Component {
   render() {
     return (
       <div>
-        {/* Nguoi day tieu bieu Start */}
         <section className="section bg-light" id="clients">
           <div className="container">
             <div className="row justify-content-center">
@@ -277,7 +276,6 @@ export default class TutorOfMonth extends Component {
             </div>
           </div>
         </section>
-        {/* Clients End */}
       </div>
     );
   }
