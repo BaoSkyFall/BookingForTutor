@@ -62,9 +62,7 @@ export default class Home extends Component {
           <h5>Hello {user.nameId}</h5>
         </div>
       );
-  
-    }
-    else
+    } else
       context = (
         <div>
           <h2>This is admin home page</h2>
