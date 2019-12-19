@@ -50,27 +50,92 @@ export default class Profile extends Component {
     this.setState({
       userInToken: { nameId: decoded.unique_name, role: decoded.role }
     });
+    userService.getUserbyUsername(decoded.unique_name).then(result => {
+      console.log('result:', result);
 
+      const blob = this.b64toBlob(result.Avatar, 'image/png');
+      const blobUrl = URL.createObjectURL(blob);
+      result.Avatar = blobUrl;
+      this.setState({ user: result });
+    })
     //Bao
     //get user's profile
   };
+  b64toBlob = (b64Data, contentType = '', sliceSize = 512) => {
+    const byteCharacters = atob(b64Data);
+    const byteArrays = [];
 
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+  }
   toggleDialog = () => {
     this.setState({
       modal: !this.state.modal
     });
   };
-
+  handleReadFileLoad = (file) => {
+    const content = file.result;
+    console.log('content:', content);
+  }
+  getBase64 = (file) => {
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      console.log(reader.result);
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+  }
   handleAvatarChanged = event => {
     const image = event.target.files[0];
-    const fd = new FormData();
-    fd.append("image", image, image.name);
+    const { user } = this.state;
+    var vm = this;
+    var input = event.target;
+    var imgURL;
+    var reader = new FileReader();
+    reader.onload = function () {
+      var dataURL = reader.result;
+      dataURL = dataURL.substring(23, dataURL.length);
+      userService.updateAvatar(user.UserName, dataURL).then(result => {
+        console.log('result:', result);
+        userService.getUserbyUsername(user.UserName).then(result => {
+          console.log('result:', result);
+
+          const blob = vm.b64toBlob(result.Avatar, 'image/png');
+          const blobUrl = URL.createObjectURL(blob);
+          result.Avatar = blobUrl;
+          vm.setState({ user: result });
+        })
+      })
+    }
+
+
+
+    reader.readAsDataURL(input.files[0]);
+    // userService.updateAvatar(this.state.user.UserName, fileReader.result).then(result => {
+    //   console.log('result:', result);
+    // })
+
     //Bao
     //up hình, lưu luôn
   };
 
   handleEditAvatarButtonClicked = () => {
     const imgInput = document.getElementById("imageInput");
+
     imgInput.click();
   };
 
@@ -86,16 +151,21 @@ export default class Profile extends Component {
   renderSkillListContainer = () => {
     let skillListContainer = [];
     const { user } = this.state;
-    user.skillList.forEach((element, index) => {
-      const className = "skill-tag" + (index % 5);
-      skillListContainer.push(
-        <div key={index} className={className}>
-          {" "}
-          {element}{" "}
-        </div>
-      );
-    });
-    return <div className="skill-list-container">{skillListContainer}</div>;
+    console.log('user:', user);
+    if (user.Skills) {
+      user.Skills.forEach((element, index) => {
+        const className = "skill-tag" + (index % 5);
+        skillListContainer.push(
+          <div key={index} className={className}>
+            {" "}
+            {element.Skill_Name}{element.Level_Name}
+          </div>
+        );
+      });
+      return <div className="skill-list-container">{skillListContainer}</div>;
+    }
+    else return null;
+
   };
   render() {
     const { userInToken, user } = this.state;
@@ -136,7 +206,7 @@ export default class Profile extends Component {
                       </h3>
                     </div>
                     <div className="image-wrapper">
-                      <img className="profile-image" src={user.avatarUrl}></img>
+                      <img className="profile-image" src={user.Avatar}></img>
                       <input
                         type="file"
                         accept="image/*"
@@ -153,27 +223,31 @@ export default class Profile extends Component {
                       <div>
                         <hr></hr>
                         <span className="name">
-                          {user.lastName}, {user.firstName}
+                          {user.FullName}
                         </span>
                       </div>
                       <div>
                         <hr></hr>
-                        <span>{user.description}</span>
+
+
+                        <span>{user.Description}</span>
                       </div>
                       <div>
                         <hr></hr>
                         <i className="fas fa-envelope"></i>
-                        <span>{user.email}</span>
+                        <span>{user.Email}</span>
                       </div>
                       <div>
                         <hr></hr>
                         <i className="fas fa-map-marker-alt"></i>
-                        <span>{user.address}</span>
+
+                        <span>{user.Adress}</span>
                       </div>
                       <div>
                         <hr></hr>
                         <i className="fas fa-phone"></i>
-                        <span>{user.number}</span>
+
+                        <span>{user.Phone}</span>
                       </div>
 
                       <div>{this.renderSkillListContainer()}</div>

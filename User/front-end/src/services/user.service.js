@@ -6,7 +6,8 @@ export const userService = {
   login,
   logout,
   register,
-  getUserbyUsername
+  getUserbyUsername,
+  updateAvatar
   //getById,
   //update,
   //delete: _delete
@@ -79,6 +80,20 @@ function register(user) {
 
 //   return fetch(`${apiUrl}/user/${id}`, requestOptions).then(handleResponse);
 // }
+function updateAvatar(username, _avatar) {
+  var body = {
+    avatar: _avatar
+  }
+  console.log(JSON.stringify(_avatar));
+  const requestOptions = {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(_avatar),
+  };
+  return fetch(`${apiUrl}/api/accounts/user/avatar/${username}`, requestOptions).then(
+    handleResponse
+  );
+}
 function getUserbyUsername(username) {
   const requestOptions = {
     method: "GET",

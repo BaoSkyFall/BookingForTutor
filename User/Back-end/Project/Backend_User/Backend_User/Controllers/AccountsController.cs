@@ -11,12 +11,15 @@ using System.Threading.Tasks;
 using AspNetIdentity.WebApi.Models;
 using System.Security.Claims;
 using AspNetIdentity.WebApi.Utilities;
+using System.Dynamic;
+using System.Text;
 
 namespace AspNetIdentity.WebApi.Controllers
 {
     [RoutePrefix("api/accounts")]
     public class AccountsController : BaseApiController
     {
+        private IdentityDatabaseEntities1 db = new IdentityDatabaseEntities1();
 
         //[Authorize(Roles="Admin")]
         [Route("users")]
@@ -49,7 +52,6 @@ namespace AspNetIdentity.WebApi.Controllers
         {
             //Only SuperAdmin or Admin can delete users (Later when implement roles)
             var user = await this.AppUserManager.FindByNameAsync(username);
-
             if (user != null)
             {
                 return Ok(this.TheModelFactory.Create(user));
@@ -201,7 +203,7 @@ namespace AspNetIdentity.WebApi.Controllers
 
 
                 var appUser = await this.AppUserManager.FindByNameAsync(username);
-
+                //byte[] bytes = Encoding.ASCII.GetBytes(avatar);
                 appUser.Avatar = avatar;
                 var result = await this.AppUserManager.UpdateAsync(appUser);
                 if (result.Succeeded)
