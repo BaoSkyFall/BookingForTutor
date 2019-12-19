@@ -14,11 +14,12 @@ namespace AspNetIdentity.WebApi.Models
 
         private UrlHelper _UrlHelper;
         private ApplicationUserManager _AppUserManager;
-
+        private IdentityDatabaseEntities1 _db;
         public ModelFactory(HttpRequestMessage request, ApplicationUserManager appUserManager)
         {
             _UrlHelper = new UrlHelper(request);
             _AppUserManager = appUserManager;
+            _db = new IdentityDatabaseEntities1();
         }
 
         public UserReturnModel Create(ApplicationUser appUser)
@@ -33,10 +34,14 @@ namespace AspNetIdentity.WebApi.Models
                 EmailConfirmed = appUser.EmailConfirmed,
                 Level = appUser.Level,
                 JoinDate = appUser.JoinDate,
+                Description = appUser.Description,
+                Adress = appUser.Adress,
+                Phone = appUser.Phone,
                 Avatar = appUser.Avatar,
                 Roles = _AppUserManager.GetRolesAsync(appUser.Id).Result,
                 isAdmin = appUser.isAdmin,
-                Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result
+                Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result,
+                Skills = _db.selectSkillsAndLevels(appUser.UserName).ToList(),
             };
 
         }
@@ -63,11 +68,15 @@ namespace AspNetIdentity.WebApi.Models
         public string Email { get; set; }
         public Boolean isAdmin { get; set; }
         public byte[] Avatar { get; set; }
-
+        public string Description { get;set;}
+        public string Adress { get; set; }
+        public string Phone { get; set; }
         public bool EmailConfirmed { get; set; }
         public int Level { get; set; }
         public DateTime JoinDate { get; set; }
         public IList<string> Roles { get; set; }
+        public List<selectSkillsAndLevels_Result> Skills { get; set; }
+
         public IList<System.Security.Claims.Claim> Claims { get; set; }
 
     }
