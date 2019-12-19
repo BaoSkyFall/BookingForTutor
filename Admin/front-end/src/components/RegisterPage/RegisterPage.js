@@ -18,12 +18,12 @@ import {
   MDBView,
   MDBMask
 } from "mdbreact";
-import "./Register.css";
+import "./RegisterPage.css";
 import { userService } from "../../services/user.service";
 import { history } from "../../helpers/history";
 import { NavLink } from "react-router-dom";
 
-export default class Register extends Component {
+export default class RegisterPage extends Component {
   constructor(props) {
     super(props);
     this.state = {

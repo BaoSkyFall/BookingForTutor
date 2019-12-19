@@ -5,16 +5,22 @@ import * as serviceWorker from "./serviceWorker";
 import { Router, Switch, Redirect, Route } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 import { history } from "./helpers/history";
-import Login from "./components/Login/Login";
-import Home from "./components/Home/Home";
-import Register from "./components/Register/Register";
+import LoginPage from "./components/LoginPage/LoginPage";
+import HomePage from "./components/HomePage/HomePage";
+import RegisterPage from "./components/RegisterPage/RegisterPage";
+import SkillTabPage from "./components/SkillTagPage/SkillTabPage";
 
 ReactDOM.render(
   <Router history={history}>
     <Switch>
-      <PrivateRoute path="/" exact component={Home}></PrivateRoute>
-      <Route path="/login" exact component={Login}></Route>
-      <PrivateRoute path="/register" exact component={Register}></PrivateRoute>
+      <Route path="/" exact component={HomePage}></Route>
+      <Route path="/login" exact component={LoginPage}></Route>
+      <PrivateRoute
+        path="/register"
+        exact
+        component={RegisterPage}
+      ></PrivateRoute>
+      <Route path="/skillTags" exact component={SkillTabPage}></Route>
       <Redirect to="/"></Redirect>
     </Switch>
   </Router>,

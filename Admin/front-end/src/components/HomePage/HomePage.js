@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { userService } from "../../services/user.service";
+
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -13,8 +13,8 @@ import {
   MDBView
 } from "mdbreact";
 import { BrowserRouter as Router } from "react-router-dom";
-import { history } from "../../helpers/history";
-import "./Home.css";
+
+import "./HomePage.css";
 import JWT from "jwt-decode";
 import { NavLink } from "react-router-dom";
 import Header from "../Header/Header";
@@ -22,7 +22,7 @@ import Footer from "../Footer/Footer";
 import SlideBar from "../SlideBar/SlideBar";
 import Content from "./Content";
 
-export default class Home extends Component {
+export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,33 +33,28 @@ export default class Home extends Component {
         role: ""
       }
     };
-    this.onClick = this.onClick.bind(this);
   }
 
   componentDidMount = () => {
-    const token = localStorage.getItem("token");
-    var decoded = JWT(token);
-    //TO DO
-    this.setState({
-      user: { nameId: decoded.unique_name, role: decoded.role }
-    });
-  };
+    // const token = localStorage.getItem("token");
+    // var decoded = JWT(token);
+    // this.setState({
+    //   user: { nameId: decoded.unique_name, role: decoded.role }
+    // });
 
-  onClick() {
     this.setState({
-      collapse: !this.state.collapse
+      user: { nameId: "Hai binh", role: "Root" }
     });
-  }
-  logout = () => {
-    userService.logout();
-    history.push("/login");
+    document.body.className = "";
+    document.body.classList.add("hold-transition");
+    document.body.classList.add("skin-blue");
+    document.body.classList.add("sidebar-mini");
   };
 
   render() {
-    console.log(this.state);
     const { user } = this.state;
     let context = "";
-    if (user.role != "Admin") {
+    if (user.role === "Root") {
       context = (
         <div>
           <h2>This is Root admin home page</h2>
@@ -74,16 +69,20 @@ export default class Home extends Component {
         </div>
       );
     return (
-      // <div>
-      //   Home
-      //   <button variant="warning" text="light" onClick={() => this.logout()}>
-      //     Logout
-      //   </button>
-      // </div>
       <div>
         <Header user={user.nameId}></Header>
         <SlideBar user={user.nameId}></SlideBar>
-        <Content user={user.nameId}></Content>
+
+        {/* Content */}
+        <div className="content-wrapper">
+          <section className="content-header">
+            <h1>Dashboard</h1>
+          </section>
+          <section className="content">
+            <Content></Content>
+          </section>
+        </div>
+
         <Footer></Footer>
       </div>
     );

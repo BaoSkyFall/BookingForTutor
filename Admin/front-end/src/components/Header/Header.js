@@ -1,6 +1,12 @@
 import React, { Component } from "react";
+import { userService } from "../../services/user.service";
+import { history } from "../../helpers/history";
 
 export default class Header extends Component {
+  logout = () => {
+    userService.logout();
+    history.push("/login");
+  };
   render() {
     return (
       <div>
@@ -357,7 +363,10 @@ export default class Header extends Component {
                         </a>
                       </div>
                       <div className="pull-right">
-                        <a href="fake_url" className="btn btn-default btn-flat">
+                        <a
+                          onClick={this.logout}
+                          className="btn btn-default btn-flat"
+                        >
                           Sign out
                         </a>
                       </div>
