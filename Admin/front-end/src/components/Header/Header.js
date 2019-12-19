@@ -9,7 +9,7 @@ export default class Header extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="fixed">
         <header className="main-header">
           {/* Logo */}
           <a href="index2.html" className="logo">

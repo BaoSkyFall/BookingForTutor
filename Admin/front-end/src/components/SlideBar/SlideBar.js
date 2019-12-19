@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default class SlideBar extends Component {
   render() {
     return (
-      <div>
+      <div className="fixed">
         <aside className="main-sidebar">
           {/* sidebar: style can be found in sidebar.less */}
           <section className="sidebar">
