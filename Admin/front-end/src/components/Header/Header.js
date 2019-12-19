@@ -4,289 +4,376 @@ export default class Header extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-          {/* Sidebar Toggle (Topbar) */}
-          <button
-            id="sidebarToggleTop"
-            className="btn btn-link d-md-none rounded-circle mr-3"
-          >
-            <i className="fa fa-bars" />
-          </button>
-          {/* Topbar Search */}
-          <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control bg-light border-0 small"
-                placeholder="Search for..."
-                aria-label="Search"
-                aria-describedby="basic-addon2"
-              />
-              <div className="input-group-append">
-                <button className="btn btn-primary" type="button">
-                  <i className="fas fa-search fa-sm" />
-                </button>
-              </div>
+        <header className="main-header">
+          {/* Logo */}
+          <a href="index2.html" className="logo">
+            {/* mini logo for sidebar mini 50x50 pixels */}
+            <span className="logo-mini">
+              <b>A</b>LT
+            </span>
+            {/* logo for regular state and mobile devices */}
+            <span className="logo-lg">
+              <b>Admin</b>LTE
+            </span>
+          </a>
+          {/* Header Navbar: style can be found in header.less */}
+          <nav className="navbar navbar-static-top">
+            {/* Sidebar toggle button*/}
+            <a
+              href="fake_url"
+              className="sidebar-toggle"
+              data-toggle="push-menu"
+              role="button"
+            >
+              <span className="sr-only">Toggle navigation</span>
+            </a>
+            {/* Navbar Right Menu */}
+            <div className="navbar-custom-menu">
+              <ul className="nav navbar-nav">
+                {/* Messages: style can be found in dropdown.less*/}
+                <li className="dropdown messages-menu">
+                  <a
+                    href="fake_url"
+                    className="dropdown-toggle"
+                    data-toggle="dropdown"
+                  >
+                    <i className="fa fa-envelope-o" />
+                    <span className="label label-success">4</span>
+                  </a>
+                  <ul className="dropdown-menu">
+                    <li className="header">You have 4 messages</li>
+                    <li>
+                      {/* inner menu: contains the actual data */}
+                      <ul className="menu">
+                        <li>
+                          {/* start message */}
+                          <a href="fake_url">
+                            <div className="pull-left">
+                              <img
+                                src="dist/img/user2-160x160.jpg"
+                                className="img-circle"
+                                alt="User"
+                              />
+                            </div>
+                            <h4>
+                              Support Team
+                              <small>
+                                <i className="fa fa-clock-o" /> 5 mins
+                              </small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                          </a>
+                        </li>
+                        {/* end message */}
+                        <li>
+                          <a href="fake_url">
+                            <div className="pull-left">
+                              <img
+                                src="dist/img/user3-128x128.jpg"
+                                className="img-circle"
+                                alt="User"
+                              />
+                            </div>
+                            <h4>
+                              AdminLTE Design Team
+                              <small>
+                                <i className="fa fa-clock-o" /> 2 hours
+                              </small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="fake_url">
+                            <div className="pull-left">
+                              <img
+                                src="dist/img/user4-128x128.jpg"
+                                className="img-circle"
+                                alt="User"
+                              />
+                            </div>
+                            <h4>
+                              Developers
+                              <small>
+                                <i className="fa fa-clock-o" /> Today
+                              </small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="fake_url">
+                            <div className="pull-left">
+                              <img
+                                src="dist/img/user3-128x128.jpg"
+                                className="img-circle"
+                                alt="User"
+                              />
+                            </div>
+                            <h4>
+                              Sales Department
+                              <small>
+                                <i className="fa fa-clock-o" /> Yesterday
+                              </small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="fake_url">
+                            <div className="pull-left">
+                              <img
+                                src="dist/img/user4-128x128.jpg"
+                                className="img-circle"
+                                alt="User"
+                              />
+                            </div>
+                            <h4>
+                              Reviewers
+                              <small>
+                                <i className="fa fa-clock-o" /> 2 days
+                              </small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li className="footer">
+                      <a href="fake_url">See All Messages</a>
+                    </li>
+                  </ul>
+                </li>
+                {/* Notifications: style can be found in dropdown.less */}
+                <li className="dropdown notifications-menu">
+                  <a
+                    href="fake_url"
+                    className="dropdown-toggle"
+                    data-toggle="dropdown"
+                  >
+                    <i className="fa fa-bell-o" />
+                    <span className="label label-warning">10</span>
+                  </a>
+                  <ul className="dropdown-menu">
+                    <li className="header">You have 10 notifications</li>
+                    <li>
+                      {/* inner menu: contains the actual data */}
+                      <ul className="menu">
+                        <li>
+                          <a href="fake_url">
+                            <i className="fa fa-users text-aqua" /> 5 new
+                            members joined today
+                          </a>
+                        </li>
+                        <li>
+                          <a href="fake_url">
+                            <i className="fa fa-warning text-yellow" /> Very
+                            long description here that may not fit into the page
+                            and may cause design problems
+                          </a>
+                        </li>
+                        <li>
+                          <a href="fake_url">
+                            <i className="fa fa-users text-red" /> 5 new members
+                            joined
+                          </a>
+                        </li>
+                        <li>
+                          <a href="fake_url">
+                            <i className="fa fa-shopping-cart text-green" /> 25
+                            sales made
+                          </a>
+                        </li>
+                        <li>
+                          <a href="fake_url">
+                            <i className="fa fa-user text-red" /> You changed
+                            your username
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li className="footer">
+                      <a href="fake_url">View all</a>
+                    </li>
+                  </ul>
+                </li>
+                {/* Tasks: style can be found in dropdown.less */}
+                <li className="dropdown tasks-menu">
+                  <a
+                    href="fake_url"
+                    className="dropdown-toggle"
+                    data-toggle="dropdown"
+                  >
+                    <i className="fa fa-flag-o" />
+                    <span className="label label-danger">9</span>
+                  </a>
+                  <ul className="dropdown-menu">
+                    <li className="header">You have 9 tasks</li>
+                    <li>
+                      {/* inner menu: contains the actual data */}
+                      <ul className="menu">
+                        <li>
+                          {/* Task item */}
+                          <a href="fake_url">
+                            <h3>
+                              Design some buttons
+                              <small className="pull-right">20%</small>
+                            </h3>
+                            <div className="progress xs">
+                              <div
+                                className="progress-bar progress-bar-aqua"
+                                style={{ width: "20%" }}
+                                role="progressbar"
+                                aria-valuenow={20}
+                                aria-valuemin={0}
+                                aria-valuemax={100}
+                              >
+                                <span className="sr-only">20% Complete</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        {/* end task item */}
+                        <li>
+                          {/* Task item */}
+                          <a href="fake_url">
+                            <h3>
+                              Create a nice theme
+                              <small className="pull-right">40%</small>
+                            </h3>
+                            <div className="progress xs">
+                              <div
+                                className="progress-bar progress-bar-green"
+                                style={{ width: "40%" }}
+                                role="progressbar"
+                                aria-valuenow={20}
+                                aria-valuemin={0}
+                                aria-valuemax={100}
+                              >
+                                <span className="sr-only">40% Complete</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        {/* end task item */}
+                        <li>
+                          {/* Task item */}
+                          <a href="fake_url">
+                            <h3>
+                              Some task I need to do
+                              <small className="pull-right">60%</small>
+                            </h3>
+                            <div className="progress xs">
+                              <div
+                                className="progress-bar progress-bar-red"
+                                style={{ width: "60%" }}
+                                role="progressbar"
+                                aria-valuenow={20}
+                                aria-valuemin={0}
+                                aria-valuemax={100}
+                              >
+                                <span className="sr-only">60% Complete</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        {/* end task item */}
+                        <li>
+                          {/* Task item */}
+                          <a href="fake_url">
+                            <h3>
+                              Make beautiful transitions
+                              <small className="pull-right">80%</small>
+                            </h3>
+                            <div className="progress xs">
+                              <div
+                                className="progress-bar progress-bar-yellow"
+                                style={{ width: "80%" }}
+                                role="progressbar"
+                                aria-valuenow={20}
+                                aria-valuemin={0}
+                                aria-valuemax={100}
+                              >
+                                <span className="sr-only">80% Complete</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        {/* end task item */}
+                      </ul>
+                    </li>
+                    <li className="footer">
+                      <a href="fake_url">View all tasks</a>
+                    </li>
+                  </ul>
+                </li>
+                {/* User Account: style can be found in dropdown.less */}
+                <li className="dropdown user user-menu">
+                  <a
+                    href="fake_url"
+                    className="dropdown-toggle"
+                    data-toggle="dropdown"
+                  >
+                    <img
+                      src="dist/img/user2-160x160.jpg"
+                      className="user-image"
+                      alt="User"
+                    />
+                    <span className="hidden-xs">{this.props.user}</span>
+                  </a>
+                  <ul className="dropdown-menu">
+                    {/* User image */}
+                    <li className="user-header">
+                      <img
+                        src="dist/img/user2-160x160.jpg"
+                        className="img-circle"
+                        alt="User"
+                      />
+                      <p>
+                        {this.props.user} - Web Developer
+                        <small>Member since Nov. 2012</small>
+                      </p>
+                    </li>
+                    {/* Menu Body */}
+                    <li className="user-body">
+                      <div className="row">
+                        <div className="col-xs-4 text-center">
+                          <a href="fake_url">Followers</a>
+                        </div>
+                        <div className="col-xs-4 text-center">
+                          <a href="fake_url">Sales</a>
+                        </div>
+                        <div className="col-xs-4 text-center">
+                          <a href="fake_url">Friends</a>
+                        </div>
+                      </div>
+                      {/* /.row */}
+                    </li>
+                    {/* Menu Footer*/}
+                    <li className="user-footer">
+                      <div className="pull-left">
+                        <a href="fake_url" className="btn btn-default btn-flat">
+                          Profile
+                        </a>
+                      </div>
+                      <div className="pull-right">
+                        <a href="fake_url" className="btn btn-default btn-flat">
+                          Sign out
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                {/* Control Sidebar Toggle Button */}
+                <li>
+                  <a href="fake_url" data-toggle="control-sidebar">
+                    <i className="fa fa-gears" />
+                  </a>
+                </li>
+              </ul>
             </div>
-          </form>
-          {/* Topbar Navbar */}
-          <ul className="navbar-nav ml-auto">
-            {/* Nav Item - Search Dropdown (Visible Only XS) */}
-            <li className="nav-item dropdown no-arrow d-sm-none">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="searchDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i className="fas fa-search fa-fw" />
-              </a>
-              {/* Dropdown - Messages */}
-              <div
-                className="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                aria-labelledby="searchDropdown"
-              >
-                <form className="form-inline mr-auto w-100 navbar-search">
-                  <div className="input-group">
-                    <input
-                      type="text"
-                      className="form-control bg-light border-0 small"
-                      placeholder="Search for..."
-                      aria-label="Search"
-                      aria-describedby="basic-addon2"
-                    />
-                    <div className="input-group-append">
-                      <button className="btn btn-primary" type="button">
-                        <i className="fas fa-search fa-sm" />
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-            {/* Nav Item - Alerts */}
-            <li className="nav-item dropdown no-arrow mx-1">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="alertsDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i className="fas fa-bell fa-fw" />
-                {/* Counter - Alerts */}
-                <span className="badge badge-danger badge-counter">3+</span>
-              </a>
-              {/* Dropdown - Alerts */}
-              <div
-                className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown"
-              >
-                <h6 className="dropdown-header">Alerts Center</h6>
-                <a className="dropdown-item d-flex align-items-center" href="#">
-                  <div className="mr-3">
-                    <div className="icon-circle bg-primary">
-                      <i className="fas fa-file-alt text-white" />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="small text-gray-500">December 12, 2019</div>
-                    <span className="font-weight-bold">
-                      A new monthly report is ready to download!
-                    </span>
-                  </div>
-                </a>
-                <a className="dropdown-item d-flex align-items-center" href="#">
-                  <div className="mr-3">
-                    <div className="icon-circle bg-success">
-                      <i className="fas fa-donate text-white" />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a className="dropdown-item d-flex align-items-center" href="#">
-                  <div className="mr-3">
-                    <div className="icon-circle bg-warning">
-                      <i className="fas fa-exclamation-triangle text-white" />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for
-                    your account.
-                  </div>
-                </a>
-                <a
-                  className="dropdown-item text-center small text-gray-500"
-                  href="#"
-                >
-                  Show All Alerts
-                </a>
-              </div>
-            </li>
-            {/* Nav Item - Messages */}
-            <li className="nav-item dropdown no-arrow mx-1">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="messagesDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i className="fas fa-envelope fa-fw" />
-                {/* Counter - Messages */}
-                <span className="badge badge-danger badge-counter">7</span>
-              </a>
-              {/* Dropdown - Messages */}
-              <div
-                className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="messagesDropdown"
-              >
-                <h6 className="dropdown-header">Message Center</h6>
-                <a className="dropdown-item d-flex align-items-center" href="#">
-                  <div className="dropdown-list-image mr-3">
-                    <img
-                      className="rounded-circle"
-                      src="https://source.unsplash.com/fn_BT9fwg_E/60x60"
-                      alt
-                    />
-                    <div className="status-indicator bg-success" />
-                  </div>
-                  <div className="font-weight-bold">
-                    <div className="text-truncate">
-                      Hi there! I am wondering if you can help me with a problem
-                      I've been having.
-                    </div>
-                    <div className="small text-gray-500">
-                      Emily Fowler · 58m
-                    </div>
-                  </div>
-                </a>
-                <a className="dropdown-item d-flex align-items-center" href="#">
-                  <div className="dropdown-list-image mr-3">
-                    <img
-                      className="rounded-circle"
-                      src="https://source.unsplash.com/AU4VPcFN4LE/60x60"
-                      alt
-                    />
-                    <div className="status-indicator" />
-                  </div>
-                  <div>
-                    <div className="text-truncate">
-                      I have the photos that you ordered last month, how would
-                      you like them sent to you?
-                    </div>
-                    <div className="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a className="dropdown-item d-flex align-items-center" href="#">
-                  <div className="dropdown-list-image mr-3">
-                    <img
-                      className="rounded-circle"
-                      src="https://source.unsplash.com/CS2uCrpNzJY/60x60"
-                      alt
-                    />
-                    <div className="status-indicator bg-warning" />
-                  </div>
-                  <div>
-                    <div className="text-truncate">
-                      Last month's report looks great, I am very happy with the
-                      progress so far, keep up the good work!
-                    </div>
-                    <div className="small text-gray-500">
-                      Morgan Alvarez · 2d
-                    </div>
-                  </div>
-                </a>
-                <a className="dropdown-item d-flex align-items-center" href="#">
-                  <div className="dropdown-list-image mr-3">
-                    <img
-                      className="rounded-circle"
-                      src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                      alt
-                    />
-                    <div className="status-indicator bg-success" />
-                  </div>
-                  <div>
-                    <div className="text-truncate">
-                      Am I a good boy? The reason I ask is because someone told
-                      me that people say this to all dogs, even if they aren't
-                      good...
-                    </div>
-                    <div className="small text-gray-500">
-                      Chicken the Dog · 2w
-                    </div>
-                  </div>
-                </a>
-                <a
-                  className="dropdown-item text-center small text-gray-500"
-                  href="#"
-                >
-                  Read More Messages
-                </a>
-              </div>
-            </li>
-            <div className="topbar-divider d-none d-sm-block" />
-            {/* Nav Item - User Information */}
-            <li className="nav-item dropdown no-arrow">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="userDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-                  Valerie Luna
-                </span>
-                <img
-                  className="img-profile rounded-circle"
-                  src="https://source.unsplash.com/QAB-WJcbgJk/60x60"
-                />
-              </a>
-              {/* Dropdown - User Information */}
-              <div
-                className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="userDropdown"
-              >
-                <a className="dropdown-item" href="#">
-                  <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
-                  Profile
-                </a>
-                <a className="dropdown-item" href="#">
-                  <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" />
-                  Settings
-                </a>
-                <a className="dropdown-item" href="#">
-                  <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400" />
-                  Activity Log
-                </a>
-                <div className="dropdown-divider" />
-                <a
-                  className="dropdown-item"
-                  href="#"
-                  data-toggle="modal"
-                  data-target="#logoutModal"
-                >
-                  <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
-                  Logout
-                </a>
-              </div>
-            </li>
-          </ul>
-        </nav>
+          </nav>
+        </header>
       </div>
     );
   }
