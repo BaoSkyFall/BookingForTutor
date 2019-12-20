@@ -8,7 +8,7 @@ export default class Footer extends Component {
           <div className="pull-right hidden-xs">
             <b>Version</b> 1.0.0
           </div>
-          <strong>Copyright © 2019 </strong>
+          <strong>Copyright © 2019 DoubleB </strong>
           All rights reserved.
         </footer>
       </div>

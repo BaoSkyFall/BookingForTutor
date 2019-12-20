@@ -26,8 +26,6 @@ export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapse: false,
-      isWideEnough: false,
       user: {
         nameId: "",
         role: ""
