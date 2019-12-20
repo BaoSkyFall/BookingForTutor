@@ -9,18 +9,21 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 import SkillTabPage from "./components/SkillTagPage/SkillTabPage";
+import UserManagerPage from "./components/UserManagerPage/UserManagerPage";
 
 ReactDOM.render(
   <Router history={history}>
     <Switch>
-      <Route path="/" exact component={HomePage}></Route>
       <Route path="/login" exact component={LoginPage}></Route>
       <PrivateRoute
         path="/register"
         exact
         component={RegisterPage}
       ></PrivateRoute>
+      <Route path="/" exact component={HomePage}></Route>
       <Route path="/skillTags" exact component={SkillTabPage}></Route>
+      <Route path="/userManager" exact component={UserManagerPage}></Route>
+
       <Redirect to="/"></Redirect>
     </Switch>
   </Router>,

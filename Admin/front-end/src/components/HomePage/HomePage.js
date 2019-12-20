@@ -71,12 +71,12 @@ export default class HomePage extends Component {
     return (
       <div>
         <Header user={user.nameId}></Header>
-        <SlideBar user={user.nameId}></SlideBar>
+        <SlideBar user={user.nameId} page="Home"></SlideBar>
 
         {/* Content */}
         <div className="content-wrapper">
           <section className="content-header">
-            <h1>Dashboard</h1>
+            <h1>Home</h1>
           </section>
           <section className="content">
             <Content></Content>

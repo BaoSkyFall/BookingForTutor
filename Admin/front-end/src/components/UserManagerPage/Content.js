@@ -2,6 +2,6 @@ import React, { Component } from "react";
 
 export default class Content extends Component {
   render() {
-    return <div>Skilltag List</div>;
+    return <div>Student List</div>;
   }
 }

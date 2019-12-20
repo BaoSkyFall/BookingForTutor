@@ -49,37 +49,24 @@ export default class SlideBar extends Component {
             {/* sidebar menu: : style can be found in sidebar.less */}
             <ul className="sidebar-menu" data-widget="tree">
               <li className="header">MAIN NAVIGATION</li>
-              <li className="active treeview menu-open">
-                <a href="fake_url">
-                  <i className="fa fa-dashboard" /> <span>Dashboard</span>
-                </a>
+
+              <li className={this.props.page === "Home" ? "active" : "a"}>
+                <NavLink to="/">
+                  <i className="fa fa-dashboard" /> <span>Home</span>
+                </NavLink>
               </li>
-              <li className="treeview">
-                <a href="fake_url">
+              <li
+                className={this.props.page === "UserManager" ? "active" : "a"}
+              >
+                <NavLink to="/userManager">
                   <i className="fa fa-user" /> <span>User</span>
-                  <span className="pull-right-container">
-                    <i className="fa fa-angle-left pull-right" />
-                  </span>
-                </a>
-                <ul className="treeview-menu">
-                  <li>
-                    <a href="pages/forms/general.html">
-                      <i className="fa fa-graduation-cap" /> Tutor
-                    </a>
-                  </li>
-                  <li>
-                    <a href="pages/forms/advanced.html">
-                      <i className="fa fa-book" /> Student
-                    </a>
-                  </li>
-                </ul>
+                </NavLink>
               </li>
-              <li className="a">
+              <li className={this.props.page === "SkillTags" ? "active" : "a"}>
                 <NavLink to="/skillTags">
                   <i className="fa fa-tags" /> <span>SkillTags</span>
                 </NavLink>
               </li>
-
               <li className="header">LABELS</li>
               <li>
                 <a href="fake_url">

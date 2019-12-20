@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import SlideBar from "../SlideBar/SlideBar";
 import Content from "./Content";
 
-export default class SkillTabPage extends Component {
+export default class UserManagerPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,12 +37,12 @@ export default class SkillTabPage extends Component {
     return (
       <div>
         <Header user={user.nameId}></Header>
-        <SlideBar user={user.nameId} page="SkillTags"></SlideBar>
+        <SlideBar user={user.nameId} page="UserManager"></SlideBar>
 
         {/* Content */}
         <div className="content-wrapper">
           <section className="content-header">
-            <h1>Skill-tag</h1>
+            <h1>Users</h1>
           </section>
           <section className="content">
             <Content></Content>
