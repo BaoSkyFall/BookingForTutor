@@ -30,6 +30,14 @@ namespace AspNetIdentity.WebApi.Controllers
 
             return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
         }
+        [Route("tags")]
+        public IHttpActionResult GetTags()
+        {
+            //Only SuperAdmin or Admin can delete users (Later when implement roles)
+            //var identity = User.Identity as System.Security.Claims.ClaimsIdentity;
+            var tags = db.selectAllTagsAll();
+            return Ok(tags);
+        }
         [AllowAnonymous]
         [Route("user/{id:guid}", Name = "GetUserById")]
         public async Task<IHttpActionResult> GetUser(string Id)

@@ -29,6 +29,8 @@ namespace AspNetIdentity.WebApi.Models
                 Url = _UrlHelper.Link("GetUserById", new { id = appUser.Id }),
                 Id = appUser.Id,
                 UserName = appUser.UserName,
+                FirstName = appUser.FirstName,
+                LastName = appUser.LastName,
                 FullName = string.Format("{0} {1}", appUser.FirstName, appUser.LastName),
                 Email = appUser.Email,
                 EmailConfirmed = appUser.EmailConfirmed,
@@ -64,6 +66,8 @@ namespace AspNetIdentity.WebApi.Models
         public string Url { get; set; }
         public string Id { get; set; }
         public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
         public Boolean isAdmin { get; set; }

@@ -28,6 +28,7 @@ export default class Profile extends Component {
         nameId: "",
         role: ""
       },
+      tags: [],
       user: {
         firstName: "phan",
         lastName: "binh",
@@ -57,6 +58,10 @@ export default class Profile extends Component {
       const blobUrl = URL.createObjectURL(blob);
       result.Avatar = blobUrl;
       this.setState({ user: result });
+      userService.getAllTags().then(result => {
+        this.setState({ tags: result });
+      })
+
     })
     //Bao
     //get user's profile
@@ -264,6 +269,7 @@ export default class Profile extends Component {
               user={this.state.user}
               closeDialog={this.toggleDialog}
               modal={this.state.modal}
+              tags={this.state.tags}
               saveProfileChanges={this.saveProfileChanges}
             ></EditDialog>
           </MDBContainer>

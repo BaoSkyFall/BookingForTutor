@@ -32,5 +32,8 @@ namespace AspNetIdentity.WebApi.Models
         public string UserName { get; set; }
         public Nullable<bool> isAdmin { get; set; }
         public byte[] Avatar { get; set; }
+        public string Description { get; set; }
+        public string Adress { get; set; }
+        public string Phone { get; set; }
     }
 }

@@ -27,6 +27,9 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="isAdmin" Type="bit" />
           <Property Name="Avatar" Type="varbinary(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Adress" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IdentityDatabase.dbo.Level' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -48,6 +51,8 @@ warning 6002: The table/view 'IdentityDatabase.dbo.UsersSkillsLevels' does not h
           <Property Name="Skill_ID" Type="int" />
           <Property Name="Level_ID" Type="int" />
         </EntityType>
+        <Function Name="selectAllTags" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectAllTagsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="selectSkillsAndLevels" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="username" Type="nvarchar" Mode="In" />
         </Function>
@@ -96,6 +101,9 @@ warning 6002: The table/view 'IdentityDatabase.dbo.UsersSkillsLevels' does not h
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="isAdmin" Type="Boolean" />
           <Property Name="Avatar" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Level">
           <Key>
@@ -121,8 +129,10 @@ warning 6002: The table/view 'IdentityDatabase.dbo.UsersSkillsLevels' does not h
           <Parameter Name="username" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="selectSkillsAndLevels" ReturnType="Collection(UsersSkillsLevelsModel.selectSkillsAndLevels_Result)">
-            <Parameter Name="username" Mode="In" Type="String" />
+          <Parameter Name="username" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="selectAllTags" ReturnType="Collection(String)" />
+          <FunctionImport Name="selectAllTagsAll" ReturnType="Collection(UsersSkillsLevelsModel.selectAllTagsAll_Result)" />
         </EntityContainer>
         <ComplexType Name="selectUserSkillsLevels_Result">
           <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
@@ -150,6 +160,11 @@ warning 6002: The table/view 'IdentityDatabase.dbo.UsersSkillsLevels' does not h
           <Property Type="String" Name="Level_Name" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="Skill_Name" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="selectAllTagsAll_Result">
+          <Property Type="String" Name="Tag" Nullable="true" MaxLength="4000" />
+          <Property Type="Int32" Name="SkillId" Nullable="false" />
+          <Property Type="Int32" Name="LevelId" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -159,6 +174,9 @@ warning 6002: The table/view 'IdentityDatabase.dbo.UsersSkillsLevels' does not h
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="UsersSkillsLevelsModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -228,6 +246,16 @@ warning 6002: The table/view 'IdentityDatabase.dbo.UsersSkillsLevels' does not h
               <ComplexTypeMapping TypeName="UsersSkillsLevelsModel.selectSkillsAndLevels_Result">
                 <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
                 <ScalarProperty Name="Skill_Name" ColumnName="Skill_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectAllTags" FunctionName="UsersSkillsLevelsModel.Store.selectAllTags" />
+          <FunctionImportMapping FunctionImportName="selectAllTagsAll" FunctionName="UsersSkillsLevelsModel.Store.selectAllTagsAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UsersSkillsLevelsModel.selectAllTagsAll_Result">
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="LevelId" ColumnName="LevelId" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

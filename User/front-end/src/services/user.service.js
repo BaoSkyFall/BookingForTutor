@@ -7,7 +7,8 @@ export const userService = {
   logout,
   register,
   getUserbyUsername,
-  updateAvatar
+  updateAvatar,
+  getAllTags
   //getById,
   //update,
   //delete: _delete
@@ -91,6 +92,15 @@ function updateAvatar(username, _avatar) {
     body: JSON.stringify(_avatar),
   };
   return fetch(`${apiUrl}/api/accounts/user/avatar/${username}`, requestOptions).then(
+    handleResponse
+  );
+}
+function getAllTags() {
+  const requestOptions = {
+    method: "GET",
+    headers: { "Content-Type": "application/json" }
+  };
+  return fetch(`${apiUrl}/api/accounts/tags`, requestOptions).then(
     handleResponse
   );
 }

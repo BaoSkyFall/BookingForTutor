@@ -294,6 +294,10 @@
     </Compile>
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\RoleBindingModels.cs" />
+    <Compile Include="Models\selectAllTags.cs" />
+    <Compile Include="Models\selectAllTagsAll_Result.cs">
+      <DependentUpon>UsersSkillsLevels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\selectSkillsAndLevels_Result.cs">
       <DependentUpon>UsersSkillsLevels.tt</DependentUpon>
     </Compile>

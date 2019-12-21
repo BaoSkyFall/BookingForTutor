@@ -48,5 +48,15 @@ namespace AspNetIdentity.WebApi.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectSkillsAndLevels_Result>("selectSkillsAndLevels", usernameParameter);
         }
+    
+        public virtual ObjectResult<string> selectAllTags()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("selectAllTags");
+        }
+    
+        public virtual ObjectResult<selectAllTagsAll_Result> selectAllTagsAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectAllTagsAll_Result>("selectAllTagsAll");
+        }
     }
 }

@@ -80,6 +80,7 @@ export default class Home extends Component {
       //   </button>
       // </div>
       <div>
+
         {user.nameId === null && <UnAuthHome></UnAuthHome>}
         {user.nameId !== null && AuthedHome}
       </div>
