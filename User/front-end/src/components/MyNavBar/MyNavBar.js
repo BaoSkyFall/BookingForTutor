@@ -32,7 +32,7 @@ class MyNavBar extends React.Component {
   }
   logout = () => {
     userService.logout();
-    history.push("/login");
+    history.push("/");
   };
 
   render() {

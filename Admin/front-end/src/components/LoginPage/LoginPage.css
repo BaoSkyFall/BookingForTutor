@@ -7,22 +7,6 @@
   height: 100%;
 }
 
-.bg {
-  /* The image used */
-  background-image: url("../../asset/bg-image.jpg");
-  /*, linear-gradient(#35acdb, #5f10f3); */
-
-  /* Full height */
-  min-height: 100%;
-  overflow: auto;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
 #banner {
   font-size: 400%;
   background-color: transparent;
