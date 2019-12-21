@@ -13,19 +13,7 @@ export default class UnAuthHome extends Component {
         return (
             <div>
                 <div>
-  {/* Loader */}
-  <div id="preloader">
-    <div id="status">
-      <div className="sk-chase">
-        <div className="sk-chase-dot" />
-        <div className="sk-chase-dot" />
-        <div className="sk-chase-dot" />
-        <div className="sk-chase-dot" />
-        <div className="sk-chase-dot" />
-        <div className="sk-chase-dot" />
-      </div>
-    </div>
-  </div>
+
   {/*Navbar Start*/}
   <nav className="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark navbar-light">
     <div className="container">

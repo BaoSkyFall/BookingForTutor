@@ -52,21 +52,20 @@ export default class Profile extends Component {
       userInToken: { nameId: decoded.unique_name, role: decoded.role }
     });
     userService.getUserbyUsername(decoded.unique_name).then(result => {
-      console.log('result:', result);
+      console.log("result:", result);
 
-      const blob = this.b64toBlob(result.Avatar, 'image/png');
+      const blob = this.b64toBlob(result.Avatar, "image/png");
       const blobUrl = URL.createObjectURL(blob);
       result.Avatar = blobUrl;
       this.setState({ user: result });
       userService.getAllTags().then(result => {
         this.setState({ tags: result });
-      })
-
-    })
+      });
+    });
     //Bao
     //get user's profile
   };
-  b64toBlob = (b64Data, contentType = '', sliceSize = 512) => {
+  b64toBlob = (b64Data, contentType = "", sliceSize = 512) => {
     const byteCharacters = atob(b64Data);
     const byteArrays = [];
 
@@ -84,26 +83,26 @@ export default class Profile extends Component {
 
     const blob = new Blob(byteArrays, { type: contentType });
     return blob;
-  }
+  };
   toggleDialog = () => {
     this.setState({
       modal: !this.state.modal
     });
   };
-  handleReadFileLoad = (file) => {
+  handleReadFileLoad = file => {
     const content = file.result;
-    console.log('content:', content);
-  }
-  getBase64 = (file) => {
+    console.log("content:", content);
+  };
+  getBase64 = file => {
     var reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = function () {
+    reader.onload = function() {
       console.log(reader.result);
     };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
+    reader.onerror = function(error) {
+      console.log("Error: ", error);
     };
-  }
+  };
   handleAvatarChanged = event => {
     const image = event.target.files[0];
     const { user } = this.state;
@@ -111,23 +110,21 @@ export default class Profile extends Component {
     var input = event.target;
     var imgURL;
     var reader = new FileReader();
-    reader.onload = function () {
+    reader.onload = function() {
       var dataURL = reader.result;
       dataURL = dataURL.substring(23, dataURL.length);
       userService.updateAvatar(user.UserName, dataURL).then(result => {
-        console.log('result:', result);
+        console.log("result:", result);
         userService.getUserbyUsername(user.UserName).then(result => {
-          console.log('result:', result);
+          console.log("result:", result);
 
-          const blob = vm.b64toBlob(result.Avatar, 'image/png');
+          const blob = vm.b64toBlob(result.Avatar, "image/png");
           const blobUrl = URL.createObjectURL(blob);
           result.Avatar = blobUrl;
           vm.setState({ user: result });
-        })
-      })
-    }
-
-
+        });
+      });
+    };
 
     reader.readAsDataURL(input.files[0]);
     // userService.updateAvatar(this.state.user.UserName, fileReader.result).then(result => {
@@ -156,21 +153,20 @@ export default class Profile extends Component {
   renderSkillListContainer = () => {
     let skillListContainer = [];
     const { user } = this.state;
-    console.log('user:', user);
+    console.log("user:", user);
     if (user.Skills) {
       user.Skills.forEach((element, index) => {
         const className = "skill-tag" + (index % 5);
         skillListContainer.push(
           <div key={index} className={className}>
             {" "}
-            {element.Skill_Name}{element.Level_Name}
+            {element.Skill_Name}
+            {element.Level_Name}
           </div>
         );
       });
       return <div className="skill-list-container">{skillListContainer}</div>;
-    }
-    else return null;
-
+    } else return null;
   };
   render() {
     const { userInToken, user } = this.state;
@@ -221,36 +217,33 @@ export default class Profile extends Component {
                         onChange={this.handleAvatarChanged}
                       ></input>
                       <button onClick={this.handleEditAvatarButtonClicked}>
-                        <i className="fas fa-pen"></i>
+                        <i className="fa fa-pen"></i>
                       </button>
                     </div>
                     <div className="profile-details">
                       <div>
                         <hr></hr>
-                        <span className="name">
-                          {user.FullName}
-                        </span>
+                        <span className="name">{user.FullName}</span>
                       </div>
                       <div>
                         <hr></hr>
-
 
                         <span>{user.Description}</span>
                       </div>
                       <div>
                         <hr></hr>
-                        <i className="fas fa-envelope"></i>
+                        <i className="fa fa-envelope"></i>
                         <span>{user.Email}</span>
                       </div>
                       <div>
                         <hr></hr>
-                        <i className="fas fa-map-marker-alt"></i>
+                        <i className="fa fa-map-marker-alt"></i>
 
                         <span>{user.Adress}</span>
                       </div>
                       <div>
                         <hr></hr>
-                        <i className="fas fa-phone"></i>
+                        <i className="fa fa-phone"></i>
 
                         <span>{user.Phone}</span>
                       </div>
