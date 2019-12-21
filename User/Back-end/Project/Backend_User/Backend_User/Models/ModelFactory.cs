@@ -42,6 +42,7 @@ namespace AspNetIdentity.WebApi.Models
                 Avatar = appUser.Avatar,
                 Roles = _AppUserManager.GetRolesAsync(appUser.Id).Result,
                 isAdmin = appUser.isAdmin,
+                isActive = appUser.isActive,
                 Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result,
                 Skills = _db.selectSkillsAndLevels(appUser.UserName).ToList(),
             };
@@ -71,6 +72,7 @@ namespace AspNetIdentity.WebApi.Models
         public string FullName { get; set; }
         public string Email { get; set; }
         public Boolean isAdmin { get; set; }
+        public Boolean isActive { get; set; }
         public byte[] Avatar { get; set; }
         public string Description { get;set;}
         public string Adress { get; set; }
