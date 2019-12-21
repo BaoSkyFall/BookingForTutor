@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Swal from "sweetalert2";
 
 export default class Content extends Component {
   constructor(props) {
@@ -9,6 +10,11 @@ export default class Content extends Component {
   }
 
   componentDidMount() {
+    //append table.js
+    const script = document.createElement("script");
+    script.src = "js/table.js";
+    script.async = true;
+    document.body.appendChild(script);
     //get data
     let dataList = [
       { tag: "#English1", skill: "English grade 1" },
@@ -49,23 +55,47 @@ export default class Content extends Component {
     ];
 
     this.setState({ skillTagList: dataList });
-
-    //append table.js
-    const script = document.createElement("script");
-    script.src = "js/table.js";
-    script.async = true;
-    document.body.appendChild(script);
   }
 
+  DeleteTagSkill = index => {};
+
+  EditTagSkill = index => {
+    console.log("edit " + index);
+  };
+
+  AddNewTagList = () => {
+    console.log("add");
+  };
+
   renderDataList = () => {
+    const buttonStyle = { float: "right", marginLeft: "10px" };
+
     let table = [];
     const { skillTagList } = this.state;
     if (skillTagList == null) return <tbody></tbody>;
     skillTagList.forEach((element, index) => {
       table.push(
-        <tr>
+        <tr key={index}>
           <td>{element.tag}</td>
-          <td>{element.skill}</td>
+          <td>
+            {element.skill}
+            <button
+              type="button"
+              className="btn btn-danger"
+              style={buttonStyle}
+              onClick={() => this.DeleteTagSkill(index)}
+            >
+              <i className="fa fa-trash"></i>
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              style={buttonStyle}
+              onClick={() => this.EditTagSkill(index)}
+            >
+              <i className="fa fa-pencil"></i>
+            </button>
+          </td>
         </tr>
       );
     });
@@ -73,13 +103,25 @@ export default class Content extends Component {
   };
 
   render() {
+    const buttonStyle = { float: "right", marginRight: "5px" };
     return (
       <div>
         <div className="row">
           <div className="col-xs-12">
             <div className="box">
               <div className="box-header">
-                <h3 className="box-title">Data Table With Full Features</h3>
+                <h3 className="box-title">Skill Tag Table</h3>
+                <button
+                  type="button"
+                  className="btn btn-success"
+                  data-toggle="modal"
+                  data-target="#modal-default"
+                  style={buttonStyle}
+                  onClick={this.AddNewTagList}
+                >
+                  <i className="fa fa-plus"></i>
+                  <b> Add new skill-tag</b>
+                </button>
               </div>
               {/* /.box-header */}
               <div className="box-body">
@@ -90,25 +132,55 @@ export default class Content extends Component {
                   <thead>
                     <tr>
                       <th>Tag</th>
-                      <th>Skill</th>
+                      <th>Name</th>
                     </tr>
                   </thead>
                   {this.renderDataList()}
                   <tfoot>
                     <tr>
                       <th>Tag</th>
-                      <th>Skill</th>
+                      <th>Name</th>
                     </tr>
                   </tfoot>
                 </table>
               </div>
-              {/* /.box-body */}
             </div>
-            {/* /.box */}
           </div>
-          {/* /.col */}
         </div>
-        {/* /.row */}
+
+        {/* modal add dialog */}
+        <div className="modal fade" id="modal-default">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+                <h4 className="modal-title">Add New Skill Tag</h4>
+              </div>
+              <div className="modal-body">
+                <p>One fine body…</p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-default pull-left"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" className="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

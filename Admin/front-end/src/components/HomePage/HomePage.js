@@ -34,15 +34,13 @@ export default class HomePage extends Component {
   }
 
   componentDidMount = () => {
-    // const token = localStorage.getItem("token");
-    // var decoded = JWT(token);
-    // this.setState({
-    //   user: { nameId: decoded.unique_name, role: decoded.role }
-    // });
-
+    const token = localStorage.getItem("token");
+    var decoded = JWT(token);
     this.setState({
-      user: { nameId: "Hai binh", role: "Root" }
+      user: { nameId: decoded.unique_name, role: decoded.role }
     });
+
+  
     document.body.className = "";
     document.body.classList.add("fixed");
     document.body.classList.add("skin-blue");

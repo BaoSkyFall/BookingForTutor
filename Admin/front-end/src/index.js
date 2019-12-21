@@ -20,9 +20,17 @@ ReactDOM.render(
         exact
         component={RegisterPage}
       ></PrivateRoute>
-      <Route path="/" exact component={HomePage}></Route>
-      <Route path="/skillTags" exact component={SkillTabPage}></Route>
-      <Route path="/userManager" exact component={UserManagerPage}></Route>
+      <PrivateRoute path="/" exact component={HomePage}></PrivateRoute>
+      <PrivateRoute
+        path="/skillTags"
+        exact
+        component={SkillTabPage}
+      ></PrivateRoute>
+      <PrivateRoute
+        path="/userManager"
+        exact
+        component={UserManagerPage}
+      ></PrivateRoute>
 
       <Redirect to="/"></Redirect>
     </Switch>
