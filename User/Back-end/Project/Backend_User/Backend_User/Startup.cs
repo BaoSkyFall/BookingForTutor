@@ -28,7 +28,9 @@ namespace AspNetIdentity.WebApi
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration httpConfig = new HttpConfiguration();
-
+            httpConfig.Formatters.JsonFormatter
+            .SerializerSettings
+            .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             ConfigureOAuthTokenGeneration(app);
 
             ConfigureOAuthTokenConsumption(app);
