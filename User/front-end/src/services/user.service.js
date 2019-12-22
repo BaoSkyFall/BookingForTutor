@@ -84,16 +84,17 @@ function register(user) {
 function updateAvatar(username, _avatar) {
   var body = {
     avatar: _avatar
-  }
+  };
   console.log(JSON.stringify(_avatar));
   const requestOptions = {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(_avatar),
+    body: JSON.stringify(_avatar)
   };
-  return fetch(`${apiUrl}/api/accounts/user/avatar/${username}`, requestOptions).then(
-    handleResponse
-  );
+  return fetch(
+    `${apiUrl}/api/accounts/user/avatar/${username}`,
+    requestOptions
+  ).then(handleResponse);
 }
 function getAllTags() {
   const requestOptions = {
@@ -122,8 +123,7 @@ function handleResponse(response) {
         logout();
         window.location.reload(true);
       }
-
-      const error = (data && data.message) || response.statusText;
+      const error = data || response.statusText;
       return Promise.reject(error);
     }
 

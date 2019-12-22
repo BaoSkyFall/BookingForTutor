@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Swal from "sweetalert2";
+
 import {
   MDBContainer,
   MDBRow,
@@ -96,6 +98,17 @@ export default class Register extends Component {
               }
             },
             error => {
+              console.log(error.ModelState["createUserModel.Password"]);
+              let title =
+                error.ModelState["createUserModel.Password"] !== undefined
+                  ? error.ModelState["createUserModel.Password"][0]
+                  : error.ModelState[""][0];
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: title,
+                footer: "<a href>Why do I have this issue?</a>"
+              });
               this.setState({ message: "Registration failed" });
             }
           );
