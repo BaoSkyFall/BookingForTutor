@@ -50,9 +50,9 @@ export default class SlideBar extends Component {
             <ul className="sidebar-menu" data-widget="tree">
               <li className="header">MAIN NAVIGATION</li>
 
-              <li className={this.props.page === "Home" ? "active" : "a"}>
+              <li className={this.props.page === "Dashboard" ? "active" : "a"}>
                 <NavLink to="/">
-                  <i className="fa fa-dashboard" /> <span>Home</span>
+                  <i className="fa fa-dashboard" /> <span>Dashboard</span>
                 </NavLink>
               </li>
               <li
@@ -62,29 +62,15 @@ export default class SlideBar extends Component {
                   <i className="fa fa-user" /> <span>User</span>
                 </NavLink>
               </li>
+              <li className={this.props.page === "Subject" ? "active" : "a"}>
+                <NavLink to="/subject">
+                  <i className="fa fa-graduation-cap" /> <span>Subject</span>
+                </NavLink>
+              </li>
               <li className={this.props.page === "SkillTags" ? "active" : "a"}>
                 <NavLink to="/skillTags">
                   <i className="fa fa-tags" /> <span>SkillTags</span>
                 </NavLink>
-              </li>
-              <li className="header">LABELS</li>
-              <li>
-                <a href="fake_url">
-                  <i className="fa fa-circle-o text-red" />{" "}
-                  <span>Important</span>
-                </a>
-              </li>
-              <li>
-                <a href="fake_url">
-                  <i className="fa fa-circle-o text-yellow" />{" "}
-                  <span>Warning</span>
-                </a>
-              </li>
-              <li>
-                <a href="fake_url">
-                  <i className="fa fa-circle-o text-aqua" />{" "}
-                  <span>Information</span>
-                </a>
               </li>
             </ul>
           </section>

@@ -10,6 +10,7 @@ import HomePage from "./components/HomePage/HomePage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 import SkillTabPage from "./components/SkillTagPage/SkillTabPage";
 import UserManagerPage from "./components/UserManagerPage/UserManagerPage";
+import SubjectPage from "./components/SubjectPage/SubjectPage";
 
 ReactDOM.render(
   <Router history={history}>
@@ -21,6 +22,11 @@ ReactDOM.render(
         component={RegisterPage}
       ></PrivateRoute>
       <PrivateRoute path="/" exact component={HomePage}></PrivateRoute>
+      <PrivateRoute
+        path="/subject"
+        exact
+        component={SubjectPage}
+      ></PrivateRoute>
       <PrivateRoute
         path="/skillTags"
         exact
