@@ -40,7 +40,6 @@ export default class HomePage extends Component {
       user: { nameId: decoded.unique_name, role: decoded.role }
     });
 
-  
     document.body.className = "";
     document.body.classList.add("fixed");
     document.body.classList.add("skin-blue");
@@ -67,12 +66,12 @@ export default class HomePage extends Component {
     return (
       <div>
         <Header user={user.nameId}></Header>
-        <SlideBar user={user.nameId} page="Home"></SlideBar>
+        <SlideBar user={user.nameId} page="Dashboard"></SlideBar>
 
         {/* Content */}
         <div className="content-wrapper">
           <section className="content-header">
-            <h1>Home</h1>
+            <h1>Dashboard</h1>
           </section>
           <section className="content">
             <Content></Content>
