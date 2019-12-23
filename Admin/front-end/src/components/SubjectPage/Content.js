@@ -56,7 +56,7 @@ export default class Content extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  DeleteTagSkill = index => {
+  DeleteSubject = index => {
     Swal.fire({
       position: "top",
       title: "Are you sure?",
@@ -144,7 +144,7 @@ export default class Content extends Component {
               className="btn btn-danger"
               style={buttonStyle}
               disabled={element.isCore}
-              onClick={() => this.DeleteTagSkill(index)}
+              onClick={() => this.DeleteSubject(index)}
             >
               <i className="fa fa-trash"></i>
             </button>
@@ -230,7 +230,7 @@ export default class Content extends Component {
                 </h4>
               </div>
               <div className="modal-body">
-                <form onSubmit={this.login}>
+                <form>
                   <p className="errMessage">{this.state.errMessage}</p>
                   <div className="form-group has-feedback">
                     <input

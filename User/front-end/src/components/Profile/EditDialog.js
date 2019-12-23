@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ReactTags from 'react-tag-autocomplete'
-import 'react-tagsinput/react-tagsinput.css'
+import ReactTags from "react-tag-autocomplete";
+import "react-tagsinput/react-tagsinput.css";
 import {
   MDBContainer,
   MDBRow,
@@ -15,7 +15,6 @@ import {
   MDBModalFooter
 } from "mdbreact";
 import "./Profile.css";
-import MultiSelect from "@khanacademy/react-multi-select";
 
 export default class EditDiaLog extends Component {
   constructor(props) {
@@ -119,24 +118,24 @@ export default class EditDiaLog extends Component {
   };
   handleDelete(i) {
     var temp = this.state.tempUser;
-    const tags = temp.Skills.slice(0)
+    const tags = temp.Skills.slice(0);
     tags.splice(i, 1);
     temp.Skills = tags;
-    this.setState({ tempUser: temp })
+    this.setState({ tempUser: temp });
   }
 
   handleAddition(tag) {
     var temp = this.state.tempUser;
 
-    const tags = [].concat(temp.Skills, tag)
+    const tags = [].concat(temp.Skills, tag);
     temp.Skills = tags;
-    this.setState({ tempUser: temp })
+    this.setState({ tempUser: temp });
   }
   render() {
     const { user, tags } = this.props;
 
-    console.log('user:', user)
-    console.log('tags:', tags)
+    console.log("user:", user);
+    console.log("tags:", tags);
 
     return (
       <MDBContainer className="text-center profile" id="container">
@@ -166,7 +165,8 @@ export default class EditDiaLog extends Component {
               error="wrong"
               success="right"
               onChange={this.onEditProfileChangeValue}
-              valueDefault={user.LastName} />
+              valueDefault={user.LastName}
+            />
             <MDBInput
               label="Email"
               name="email"
@@ -177,7 +177,6 @@ export default class EditDiaLog extends Component {
               success="right"
               onChange={this.onEditProfileChangeValue}
               valueDefault={user.Email}
-
             />
             <MDBInput
               label="Address"
@@ -221,7 +220,8 @@ export default class EditDiaLog extends Component {
               tags={this.state.tempUser.Skills}
               suggestions={tags}
               handleDelete={this.handleDelete.bind(this)}
-              handleAddition={this.handleAddition.bind(this)} />
+              handleAddition={this.handleAddition.bind(this)}
+            />
           </MDBModalBody>
           <MDBModalFooter>
             <MDBBtn color="secondary" onClick={this.closeDialog}>

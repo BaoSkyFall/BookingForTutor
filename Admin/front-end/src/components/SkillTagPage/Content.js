@@ -269,7 +269,7 @@ export default class Content extends Component {
                 </h4>
               </div>
               <div className="modal-body">
-                <form onSubmit={this.login}>
+                <form>
                   <p className="errMessage">{this.state.errMessage}</p>
                   <div className="form-group has-feedback">
                     <input
