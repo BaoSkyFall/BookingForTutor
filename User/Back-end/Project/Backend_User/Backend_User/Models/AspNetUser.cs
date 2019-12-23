@@ -14,6 +14,17 @@ namespace AspNetIdentity.WebApi.Models
     
     public partial class AspNetUser
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public AspNetUser()
+        {
+            this.Contracts = new HashSet<Contract>();
+            this.Contracts1 = new HashSet<Contract>();
+            this.Feedbacks = new HashSet<Feedback>();
+            this.Feedbacks1 = new HashSet<Feedback>();
+            this.UsersTags = new HashSet<UsersTag>();
+            this.UserSubjects = new HashSet<UserSubject>();
+        }
+    
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -35,5 +46,19 @@ namespace AspNetIdentity.WebApi.Models
         public string Description { get; set; }
         public string Adress { get; set; }
         public string Phone { get; set; }
+        public Nullable<bool> isActive { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contract> Contracts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contract> Contracts1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Feedback> Feedbacks1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UsersTag> UsersTags { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserSubject> UserSubjects { get; set; }
     }
 }

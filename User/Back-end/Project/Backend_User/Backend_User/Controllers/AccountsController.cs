@@ -28,6 +28,7 @@ namespace AspNetIdentity.WebApi.Controllers
             //Only SuperAdmin or Admin can delete users (Later when implement roles)
             //var identity = User.Identity as System.Security.Claims.ClaimsIdentity;
 
+
             return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
         }
         [Route("tags")]
@@ -87,6 +88,7 @@ namespace AspNetIdentity.WebApi.Controllers
                 LastName = createUserModel.LastName,
                 Level = 3,
                 JoinDate = DateTime.Now.Date,
+                isActive = true,
             };
 
 
