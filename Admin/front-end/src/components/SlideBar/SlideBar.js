@@ -59,17 +59,22 @@ export default class SlideBar extends Component {
                 className={this.props.page === "UserManager" ? "active" : "a"}
               >
                 <NavLink to="/userManager">
-                  <i className="fa fa-user" /> <span>User</span>
+                  <i className="fa fa-user" /> <span>Users</span>
                 </NavLink>
               </li>
               <li className={this.props.page === "Subject" ? "active" : "a"}>
                 <NavLink to="/subject">
-                  <i className="fa fa-graduation-cap" /> <span>Subject</span>
+                  <i className="fa fa-graduation-cap" /> <span>Subjects</span>
                 </NavLink>
               </li>
               <li className={this.props.page === "SkillTags" ? "active" : "a"}>
                 <NavLink to="/skillTags">
                   <i className="fa fa-tags" /> <span>SkillTags</span>
+                </NavLink>
+              </li>
+              <li className={this.props.page === "Contract" ? "active" : "a"}>
+                <NavLink to="/contract">
+                  <i className="fa fa-file-text" /> <span>Contracts</span>
                 </NavLink>
               </li>
             </ul>

@@ -5,7 +5,7 @@ import SlideBar from "../SlideBar/SlideBar";
 import Content from "./Content";
 import JWT from "jwt-decode";
 
-export default class UserManagerPage extends Component {
+export default class ContractPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,12 +33,12 @@ export default class UserManagerPage extends Component {
     return (
       <div>
         <Header user={user.nameId}></Header>
-        <SlideBar user={user.nameId} page="UserManager"></SlideBar>
+        <SlideBar user={user.nameId} page="Contract"></SlideBar>
 
         {/* Content */}
         <div className="content-wrapper">
           <section className="content-header">
-            <h1>Users</h1>
+            <h1>Contracts</h1>
           </section>
           <section className="content">
             <Content></Content>

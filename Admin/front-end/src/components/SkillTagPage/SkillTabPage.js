@@ -10,8 +10,6 @@ export default class SkillTabPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapse: false,
-      isWideEnough: false,
       user: {
         nameId: "",
         role: ""

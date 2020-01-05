@@ -11,6 +11,7 @@ import RegisterPage from "./components/RegisterPage/RegisterPage";
 import SkillTabPage from "./components/SkillTagPage/SkillTabPage";
 import UserManagerPage from "./components/UserManagerPage/UserManagerPage";
 import SubjectPage from "./components/SubjectPage/SubjectPage";
+import ContractPage from "./components/ContractPage/ContractPage";
 
 ReactDOM.render(
   <Router history={history}>
@@ -36,6 +37,11 @@ ReactDOM.render(
         path="/userManager"
         exact
         component={UserManagerPage}
+      ></PrivateRoute>
+      <PrivateRoute
+        path="/contract"
+        exact
+        component={ContractPage}
       ></PrivateRoute>
 
       <Redirect to="/"></Redirect>
